@@ -1,6 +1,6 @@
 ﻿namespace GameHelperApp.Enums;
 
-public enum GameGenre
+public enum GameGenre // List of game genres (MY)
 {
     Sandbox,
     RTS,

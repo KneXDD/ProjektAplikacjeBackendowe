@@ -15,7 +15,7 @@ public class Studios
 
     public Countries Country { get; set; }
 
-    [Column(TypeName = "nvarchar(20000)")]
+    [Column(TypeName = "nvarchar(MAX)")]
     public String CompanyDescriptiopn { get; set; }
 
     public Byte[] Logo { get; set; }

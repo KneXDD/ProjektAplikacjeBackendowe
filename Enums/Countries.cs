@@ -1,6 +1,6 @@
 ﻿namespace GameHelperApp.Enums;
 
-public enum Countries
+public enum Countries // List of countries (MY)
 {
 	Afghanistan,
 	Albania,
@@ -183,7 +183,7 @@ public enum Countries
 	Uganda,
 	Ukraine,
 	UnitedArabEmirates,
-	United Kingdom,
+	UnitedKingdom,
 	UnitedStates,
 	Uruguay,
 	Uzbekistan,

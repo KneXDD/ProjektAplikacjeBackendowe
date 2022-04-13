@@ -3,7 +3,7 @@ using GameHelperApp.Enums;
 
 namespace GameHelperApp.Models;
 
-public class Game
+public class Games
 {
     [Key]
     public int GameId { get; set; }
@@ -15,4 +15,7 @@ public class Game
     public DateTime ReleaseDate { get; set; }
 
     public Byte[] Cover { get; set; }
+    
+    //Foreign Key (MY)
+    public Studios Studios { get; set; }
 }
