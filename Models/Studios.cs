@@ -14,8 +14,7 @@ public class Studios
     public DateTime YearOfEstablishment { get; set; }
 
     public Countries Country { get; set; }
-
-    [Column(TypeName = "nvarchar(MAX)")]
+    
     public String CompanyDescriptiopn { get; set; }
 
     public Byte[] Logo { get; set; }

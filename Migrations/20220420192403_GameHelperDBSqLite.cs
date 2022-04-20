@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace GameHelperApp.Migrations
 {
-    public partial class Games_Studios : Migration
+    public partial class GameHelperDBSqLite : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,14 +13,14 @@ namespace GameHelperApp.Migrations
                 name: "Studios",
                 columns: table => new
                 {
-                    StudioId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    YearOfEstablishment = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Country = table.Column<int>(type: "int", nullable: false),
-                    CompanyDescriptiopn = table.Column<string>(type: "nvarchar(MAX)", nullable: false),
-                    Logo = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
-                    NumberOfWorkers = table.Column<int>(type: "int", nullable: false)
+                    StudioId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(type: "TEXT", nullable: false),
+                    YearOfEstablishment = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Country = table.Column<int>(type: "INTEGER", nullable: false),
+                    CompanyDescriptiopn = table.Column<string>(type: "TEXT", nullable: false),
+                    Logo = table.Column<byte[]>(type: "BLOB", nullable: false),
+                    NumberOfWorkers = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -31,13 +31,13 @@ namespace GameHelperApp.Migrations
                 name: "Games",
                 columns: table => new
                 {
-                    GameId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Genre = table.Column<int>(type: "int", nullable: false),
-                    ReleaseDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Cover = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
-                    StudiosStudioId = table.Column<int>(type: "int", nullable: false)
+                    GameId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(type: "TEXT", nullable: false),
+                    Genre = table.Column<int>(type: "INTEGER", nullable: false),
+                    ReleaseDate = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Cover = table.Column<byte[]>(type: "BLOB", nullable: false),
+                    StudiosStudioId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
