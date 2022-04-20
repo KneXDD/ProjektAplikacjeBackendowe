@@ -19,5 +19,5 @@ public class Studios
 
     public Byte[] Logo { get; set; }
 
-    public int NumberOfWorkers { get; set; }
+    public int? NumberOfWorkers { get; set; }
 }

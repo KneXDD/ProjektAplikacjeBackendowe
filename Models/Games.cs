@@ -18,4 +18,6 @@ public class Games
     
     //Foreign Key (MY)
     public Studios Studios { get; set; }
+
+    public Engines Engines { get; set; }  
 }
