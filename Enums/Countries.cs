@@ -1,4 +1,6 @@
-﻿namespace GameHelperApp.Enums;
+﻿using System.ComponentModel;
+
+namespace GameHelperApp.Enums;
 
 public enum Countries // List of countries (MY)
 {
@@ -23,17 +25,17 @@ public enum Countries // List of countries (MY)
 	Benin,
 	Bhutan,
 	Bolivia,
+	[Description("Bosnia and Herzegovina")]
 	BosniaandHerzegovina,
 	Botswana,
 	Brazil,
 	Brunei,
 	Bulgaria,
-	BurkinaFaso,
 	Burundi,
-	CaboVerde,
 	Cambodia,
 	Cameroon,
 	Canada,
+	[Description("Central African Republic")]
 	CentralAfricanRepublic,
 	Chad,
 	Chile,
@@ -41,19 +43,25 @@ public enum Countries // List of countries (MY)
 	Colombia,
 	Comoros,
 	Congo,
+	[Description("Costa Rica")]
 	CostaRica,
 	Croatia,
 	Cuba,
 	Cyprus,
+	[Description("Czech Republic")]
 	CzechRepublic,
 	Denmark,
 	Djibouti,
 	Dominica,
+	[Description("Dominican Republic")]
 	DominicanRepublic,
+	[Description("East Timor")]
 	EastTimor,
 	Ecuador,
 	Egypt,
+	[Description("El Salvator")]
 	ElSalvador,
+	[Description("Equatoria Guinea")]
 	EquatorialGuinea,
 	Eritrea,
 	Estonia,
@@ -63,7 +71,7 @@ public enum Countries // List of countries (MY)
 	Finland,
 	France,
 	Gabon,
-	TheGambia,
+	Gambia,
 	Georgia,
 	Germany,
 	Ghana,
@@ -71,6 +79,7 @@ public enum Countries // List of countries (MY)
 	Grenada,
 	Guatemala,
 	Guinea,
+	[Description("GuineaBissau")]
 	GuineaBissau,
 	Guyana,
 	Haiti,
@@ -109,6 +118,7 @@ public enum Countries // List of countries (MY)
 	Maldives,
 	Mali,
 	Malta,
+	[Description("Marshall Islands")]
 	MarshallIslands,
 	Mauritania,
 	Mauritius,
@@ -125,16 +135,19 @@ public enum Countries // List of countries (MY)
 	Nauru,
 	Nepal,
 	Netherlands,
+	[Description("New Zeland")]
 	NewZealand,
 	Nicaragua,
 	Niger,
 	Nigeria,
+	[Description("North Macedonia")]
 	NorthMacedonia,
 	Norway,
 	Oman,
 	Pakistan,
 	Palau,
 	Panama,
+	[Description("Papua New Guinea")]
 	PapuaNewGuinea,
 	Paraguay,
 	Peru,
@@ -145,22 +158,21 @@ public enum Countries // List of countries (MY)
 	Romania,
 	Russia,
 	Rwanda,
-	SaintKittsandNevis,
+	[Description("Saint Lucia")]
 	SaintLucia,
-	SaintVincentandtheGrenadines,
 	Samoa,
+	[Description("San Marino")]
 	SanMarino,
-	SaoTomeandPrincipe,
+	[Description("Saudi Arabia")]
 	SaudiArabia,
 	Senegal,
 	Serbia,
 	Seychelles,
-	SierraLeone,
 	Singapore,
 	Slovakia,
 	Slovenia,
-	SolomonIslands,
 	Somalia,
+	[Description("South Africa")]
 	SouthAfrica,
 	Spain,
 	SriLanka,
@@ -175,19 +187,22 @@ public enum Countries // List of countries (MY)
 	Thailand,
 	Togo,
 	Tonga,
-	TrinidadandTobago,
 	Tunisia,
 	Turkey,
 	Turkmenistan,
 	Tuvalu,
 	Uganda,
 	Ukraine,
+	[Description("United Arab Emirates")]
 	UnitedArabEmirates,
+	[Description("United Kingdom")]
 	UnitedKingdom,
+	[Description("United States")]
 	UnitedStates,
 	Uruguay,
 	Uzbekistan,
 	Vanuatu,
+	[Description("Vatican City")]
 	VaticanCity,
 	Venezuela,
 	Vietnam,
