@@ -23,4 +23,5 @@ public class Memory
     public Delays Delays { get; set; }
     
     public decimal Price { get; set; }
+
 }
