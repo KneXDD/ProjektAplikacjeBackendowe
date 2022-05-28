@@ -10,7 +10,7 @@
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark bg-gradient border-bottom box-shadow mb-3">
         <div class="container-fluid">
             <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">GameHelperApp</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -20,10 +20,27 @@
             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Hardware
+                        </button>
+                        <ul class="dropdown-menu bg-dark" aria-labelledby="dropdown">
+                            <li><a class="nav-link text-light dropdown-item" asp-area="" asp-controller="Case" asp-action="Index">Case</a></li>
+                            <li><a class="nav-link text-light dropdown-item" asp-area="" asp-controller="Cpu" asp-action="Index">Cpu</a></li>
+                            <li><a class="nav-link text-light dropdown-item" asp-area="" asp-controller="Gpu" asp-action="Index">Gpu</a></li>
+                            <li><a class="nav-link text-light dropdown-item" asp-area="" asp-controller="Memory" asp-action="Index">Memory</a></li>
+                            <li><a class="nav-link text-light dropdown-item" asp-area="" asp-controller="Motherboard" asp-action="Index">Motherboard</a></li>
+                            <li><a class="nav-link text-light dropdown-item" asp-area="" asp-controller="Psu" asp-action="Index">Psu</a></li>
+                            <li><a class="nav-link text-light dropdown-item" asp-area="" asp-controller="Storge" asp-action="Index">Storge</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" asp-area="" asp-controller="Case" asp-action="Index">Case</a>
                     </li>
                 </ul>
             </div>
@@ -36,7 +53,7 @@
     </main>
 </div>
 
-<footer class="border-top footer text-muted">
+<footer class="border-top footer text-muted bg-dark bg-gradient">
     <div class="container">
         &copy; 2022 - GameHelperApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
     </div>
