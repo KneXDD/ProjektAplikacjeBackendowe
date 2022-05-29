@@ -8,7 +8,7 @@ public class Games
     [Key]
     public int GameId { get; set; }
 
-    public String Name { get; set; }
+    public string Name { get; set; }
 
     public GameGenre Genre { get; set; }
     
