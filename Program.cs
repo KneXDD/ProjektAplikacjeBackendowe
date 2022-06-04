@@ -9,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 //Services configuration (used to be in Startup.cs)
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IServices<Case>, CaseService>();
+builder.Services.AddScoped<IServices<Cpu>, CpuService>();
 // Creating a database connection. The connection source is taken from appsettings.json (MY)
 //Connection String
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("GameHelperDB")));

@@ -13,7 +13,6 @@ public class CaseController : Controller
     {
         _service = service;
     }
-
     public async Task<IActionResult> Index()
     {
         var data = await _service.GetAllAsync();
@@ -26,14 +25,34 @@ public class CaseController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create(
-        [Bind("Name,CaseType,Producer,NumberOfFans,GraphicsCardLength,Rgb,Price")] Case cas)
+    public async Task<IActionResult> Create([Bind("Name,CaseType,Producer,NumberOfFans,GraphicsCardLength,Rgb,Price")] Case cas)
     {
         if (!ModelState.IsValid)
         {
             return View(cas);
         }
         await _service.AddAsync(cas);
+        return RedirectToAction(nameof(Index));
+    }
+    public async Task<IActionResult> Edit(int id)
+    {
+        var result = await _service.GetByIdAsync(id);
+        if (result == null)
+        {
+            return View();
+        }
+
+        return View(result);
+    }
+
+    [HttpPost, ActionName("Edit")]
+    public async Task<IActionResult> Edit(int id, [Bind("Name,CaseType,Producer,NumberOfFans,GraphicsCardLength,Rgb,Price")] Case cas)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View(cas);
+        }
+        await _service.UpdateAsync(id, cas);
         return RedirectToAction(nameof(Index));
     }
 
