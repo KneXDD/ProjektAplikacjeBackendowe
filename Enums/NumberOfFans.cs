@@ -1,13 +1,14 @@
 ﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace GameHelperApp.Enums;
 
 public enum NumberOfFans
 {
-    [Description("1")]
+    [Display(Name = "1")]
     One,
-    [Description("2")]
+    [Display(Name = "2")]
     Two,
-    [Description("3")]
+    [Display(Name = "3")]
     Three
 }

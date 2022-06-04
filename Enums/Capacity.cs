@@ -1,19 +1,20 @@
 ﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace GameHelperApp.Enums;
 
 public enum Capacity
 {
-    [Description("500GB")]
+    [Display(Name ="500GB")]
     a,
-    [Description("1TB")]
+    [Display(Name ="1TB")]
     b,
-    [Description("256GB")]
+    [Display(Name ="256GB")]
     c,
-    [Description("3TB")]
+    [Display(Name ="3TB")]
     d,
-    [Description("128GB")]
+    [Display(Name ="128GB")]
     e,
-    [Description("480GB")]
+    [Display(Name ="480GB")]
     f
 }

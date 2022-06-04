@@ -1,11 +1,16 @@
 using GameHelperApp;
+using GameHelperApp.Models;
+using GameHelperApp.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+//Services configuration (used to be in Startup.cs)
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IServices<Case>, CaseService>();
 // Creating a database connection. The connection source is taken from appsettings.json (MY)
+//Connection String
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("GameHelperDB")));
 var app = builder.Build();
 
@@ -29,3 +34,4 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+

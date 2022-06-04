@@ -1,18 +1,73 @@
-@model Case
+@model IEnumerable<Case>
 
 @{
+    ViewData["Title"] = "Case List";
     Layout = "_Layout";
 }
 
 <!DOCTYPE html>
-
 <html>
 <head>
     <title>title</title>
 </head>
 <body>
-<div>
-      
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered table-sm">
+            <thead class="table-dark">
+            <tr class="text-center">
+                <th>@Html.DisplayNameFor(x => x.CaseId)</th>
+                <th>@Html.DisplayNameFor(x => x.Name)</th>
+                <th>@Html.DisplayNameFor(x => x.CaseType)</th>
+                <th>@Html.DisplayNameFor(x => x.Producer)</th>
+                <th>@Html.DisplayNameFor(x => x.GraphicsCardLength)</th>
+                <th>@Html.DisplayNameFor(x => x.NumberOfFans)</th>
+                <th>@Html.DisplayNameFor(x => x.Rgb)</th>
+                <th>@Html.DisplayNameFor(x => x.Price)</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var x in Model)
+            {
+                <tr class="text-center">
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => x.CaseId)
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => x.Name)
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => x.CaseType)
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => x.Producer)
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => x.GraphicsCardLength)
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => x.NumberOfFans)
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => x.Rgb)
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => x.Price)
+                    </td>
+                    <td class="align-middle">
+                        <a class="btn btn-success">Edit</a>
+                        <a class="btn btn-info">Details</a>
+                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@x.CaseId">Delete</a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
 </div>
+<div class="text-white">
+    <a asp-controller="Case" asp-action="Create" class="btn btn btn-dark">Add Case</a>
+    </div>
 </body>
 </html>

@@ -1,15 +1,16 @@
 ﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace GameHelperApp.Enums;
 
 public enum GraphicsCardLength
 {
-    [Description("250mm")]
+    [Display(Name = "250mm")]
     First,
-    [Description("300mm")]
+    [Display(Name = "300mm")]
     Second,
-    [Description("350mm")]
+    [Display(Name = "350mm")]
     Third, 
-    [Description("400mm")]
+    [Display(Name = "400mm")]
     Fourth
 }
