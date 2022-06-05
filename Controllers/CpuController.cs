@@ -46,7 +46,7 @@ public class CpuController : Controller
     }
 
     [HttpPost, ActionName("Edit")]
-    public async Task<IActionResult> Edit(int id,[Bind("CpuModel,SocketNumber,CoreClock,PhysicalCores,SupportedMemories,Price")] Cpu cpu)
+    public async Task<IActionResult> Edit(int id, Cpu cpu)
     {
         if (!ModelState.IsValid)
         {

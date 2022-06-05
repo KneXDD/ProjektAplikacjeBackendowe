@@ -46,7 +46,7 @@ public class CaseController : Controller
     }
 
     [HttpPost, ActionName("Edit")]
-    public async Task<IActionResult> Edit(int id, [Bind("Name,CaseType,Producer,NumberOfFans,GraphicsCardLength,Rgb,Price")] Case cas)
+    public async Task<IActionResult> Edit(int id, Case cas)
     {
         if (!ModelState.IsValid)
         {

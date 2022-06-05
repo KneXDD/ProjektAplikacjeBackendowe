@@ -1,0 +1,57 @@
+﻿@using GameHelperApp.Enums
+@model Engines
+
+@{
+    ViewBag.Title = "Add new Engine";
+    Layout = "_Layout";
+}
+
+<div class="row text">
+    <div class="col-md-8 offset-2">
+        <p>
+            <h1>Add new Engine</h1>
+        </p>
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ReleaseDate" class="control-label"></label>
+                        <input asp-for="ReleaseDate" class="form-control" />
+                        <span asp-validation-for="ReleaseDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Developer" class="control-label"></label>
+                        <input asp-for="Developer" class="form-control" />
+                        <span asp-validation-for="Developer" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="License" class="control-label"></label>
+                        <input asp-for="License" class="form-control" />
+                        <span asp-validation-for="License" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="EngineDescription" class="control-label"></label>
+                        <input asp-for="EngineDescription" class="form-control"></input>
+                        <span asp-validation-for="EngineDescription" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="EngineLogo" class="control-label"></label>
+                        <input type="file" asp-for="EngineLogo" class="form-control" />
+                        <span asp-validation-for="EngineLogo" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-success float-end" />
+                        <a class="btn btn-secondary" asp-action="Index">Back</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
