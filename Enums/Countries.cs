@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace GameHelperApp.Enums;
 
@@ -25,7 +26,7 @@ public enum Countries // List of countries (MY)
 	Benin,
 	Bhutan,
 	Bolivia,
-	[Description("Bosnia and Herzegovina")]
+	[Display(Name = "Bosnia and Herzegovina")]
 	BosniaandHerzegovina,
 	Botswana,
 	Brazil,
@@ -35,7 +36,7 @@ public enum Countries // List of countries (MY)
 	Cambodia,
 	Cameroon,
 	Canada,
-	[Description("Central African Republic")]
+	[Display(Name ="Central African Republic")]
 	CentralAfricanRepublic,
 	Chad,
 	Chile,
@@ -43,25 +44,25 @@ public enum Countries // List of countries (MY)
 	Colombia,
 	Comoros,
 	Congo,
-	[Description("Costa Rica")]
+	[Display(Name ="Costa Rica")]
 	CostaRica,
 	Croatia,
 	Cuba,
 	Cyprus,
-	[Description("Czech Republic")]
+	[Display(Name ="Czech Republic")]
 	CzechRepublic,
 	Denmark,
 	Djibouti,
 	Dominica,
-	[Description("Dominican Republic")]
+	[Display(Name ="Dominican Republic")]
 	DominicanRepublic,
-	[Description("East Timor")]
+	[Display(Name ="East Timor")]
 	EastTimor,
 	Ecuador,
 	Egypt,
-	[Description("El Salvator")]
+	[Display(Name ="El Salvator")]
 	ElSalvador,
-	[Description("Equatoria Guinea")]
+	[Display(Name ="Equatoria Guinea")]
 	EquatorialGuinea,
 	Eritrea,
 	Estonia,
@@ -79,7 +80,7 @@ public enum Countries // List of countries (MY)
 	Grenada,
 	Guatemala,
 	Guinea,
-	[Description("GuineaBissau")]
+	[Display(Name ="GuineaBissau")]
 	GuineaBissau,
 	Guyana,
 	Haiti,
@@ -118,7 +119,7 @@ public enum Countries // List of countries (MY)
 	Maldives,
 	Mali,
 	Malta,
-	[Description("Marshall Islands")]
+	[Display(Name ="Marshall Islands")]
 	MarshallIslands,
 	Mauritania,
 	Mauritius,
@@ -135,19 +136,19 @@ public enum Countries // List of countries (MY)
 	Nauru,
 	Nepal,
 	Netherlands,
-	[Description("New Zeland")]
+	[Display(Name ="New Zeland")]
 	NewZealand,
 	Nicaragua,
 	Niger,
 	Nigeria,
-	[Description("North Macedonia")]
+	[Display(Name ="North Macedonia")]
 	NorthMacedonia,
 	Norway,
 	Oman,
 	Pakistan,
 	Palau,
 	Panama,
-	[Description("Papua New Guinea")]
+	[Display(Name ="Papua New Guinea")]
 	PapuaNewGuinea,
 	Paraguay,
 	Peru,
@@ -158,12 +159,12 @@ public enum Countries // List of countries (MY)
 	Romania,
 	Russia,
 	Rwanda,
-	[Description("Saint Lucia")]
+	[Display(Name ="Saint Lucia")]
 	SaintLucia,
 	Samoa,
-	[Description("San Marino")]
+	[Display(Name ="San Marino")]
 	SanMarino,
-	[Description("Saudi Arabia")]
+	[Display(Name ="Saudi Arabia")]
 	SaudiArabia,
 	Senegal,
 	Serbia,
@@ -172,7 +173,7 @@ public enum Countries // List of countries (MY)
 	Slovakia,
 	Slovenia,
 	Somalia,
-	[Description("South Africa")]
+	[Display(Name ="South Africa")]
 	SouthAfrica,
 	Spain,
 	SriLanka,
@@ -193,16 +194,16 @@ public enum Countries // List of countries (MY)
 	Tuvalu,
 	Uganda,
 	Ukraine,
-	[Description("United Arab Emirates")]
+	[Display(Name ="United Arab Emirates")]
 	UnitedArabEmirates,
-	[Description("United Kingdom")]
+	[Display(Name ="United Kingdom")]
 	UnitedKingdom,
-	[Description("United States")]
+	[Display(Name ="United States")]
 	UnitedStates,
 	Uruguay,
 	Uzbekistan,
 	Vanuatu,
-	[Description("Vatican City")]
+	[Display(Name ="Vatican City")]
 	VaticanCity,
 	Venezuela,
 	Vietnam,

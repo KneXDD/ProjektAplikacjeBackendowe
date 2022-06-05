@@ -1,12 +1,13 @@
 ﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace GameHelperApp.Enums;
 
 public enum Cabling
 {
     Modular,
-    [Description("Semi-Modular")]
+    [Display(Name ="Semi-Modular")]
     Semimodular,
-    [Description("Non-Modular")]
+    [Display(Name ="Non-Modular")]
     Nonmodular
 }

@@ -1,21 +1,22 @@
 ﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace GameHelperApp.Enums;
 
 public enum CaseType
 {
-    [Description("Mini Tower")]
+    [Display(Name ="Mini Tower")]
     MiniTower,
-    [Description("Micro Tower")]
+    [Display(Name ="Micro Tower")]
     MicroTower,
-    [Description("Slim Tower")]
+    [Display(Name ="Slim Tower")]
     SlimTower,
-    [Description("Mini ITX")]
+    [Display(Name ="Mini ITX")]
     MiniITX,
-    [Description("Cube Case")]
+    [Display(Name ="Cube Case")]
     CubeCase,
-    [Description("Midi Tower")]
+    [Display(Name ="Midi Tower")]
     MidiTower,
-    [Description("Big ower")]
+    [Display(Name ="Big ower")]
     BigTower
 }

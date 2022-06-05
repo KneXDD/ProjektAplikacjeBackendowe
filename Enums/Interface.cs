@@ -1,12 +1,13 @@
 ﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace GameHelperApp.Enums;
 
 public enum Interface
 {
-    [Description("M.2")]
+    [Display(Name = "M.2")]
     M2,
     SATA,
-    [Description("Sata III")]
+    [Display(Name = "Sata III")]
     SATAIII
 }
