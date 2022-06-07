@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using GameHelperApp.Enums;
 
@@ -11,13 +12,16 @@ public class Studios
 
     public String Name { get; set; }
 
+    [DisplayName("Year Of Establishment")]
     public DateTime YearOfEstablishment { get; set; }
 
     public Countries Country { get; set; }
     
+    [DisplayName("Company Descriptiopn")]
     public String CompanyDescriptiopn { get; set; }
 
     public Byte[] Logo { get; set; }
 
+    [DisplayName("Number Of Workers")]
     public int? NumberOfWorkers { get; set; }
 }

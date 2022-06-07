@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using GameHelperApp.Enums;
 
 namespace GameHelperApp.Models;
@@ -8,6 +9,7 @@ public class Memory
     [Key]
     public int MemoryId { get; set; }
     
+    [DisplayName("Memory Name")]
     public string MemoryName { get; set; }
     
     public Ram Ram { get; set; }

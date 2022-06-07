@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using GameHelperApp.Enums;
 
 namespace GameHelperApp.Models;
@@ -12,6 +13,7 @@ public class Games
 
     public GameGenre Genre { get; set; }
     
+    [DisplayName("Release Date")]
     public DateTime ReleaseDate { get; set; }
 
     public Byte[] Cover { get; set; }
