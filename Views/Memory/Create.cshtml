@@ -1,0 +1,57 @@
+﻿@using GameHelperApp.Enums
+@model Games
+
+@{
+    ViewBag.Title = "Add new Game";
+    Layout = "_Layout";
+}
+
+<div class="row text">
+    <div class="col-md-8 offset-2">
+        <p>
+            <h1>Add new Game</h1>
+        </p>
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ReleaseDate" class="control-label"></label>
+                        <input asp-for="ReleaseDate" class="form-control" />
+                        <span asp-validation-for="ReleaseDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Cover" class="control-label"></label>
+                        <input asp-for="Cover" class="form-control" />
+                        <span asp-validation-for="Cover" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Studios" class="control-label"></label>
+                        <input asp-for="Studios" class="form-control" />
+                        <span asp-validation-for="Studios" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Genre" class="control-label"></label>
+                        <select asp-for="Genre" class="form-control" asp-items="Html.GetEnumSelectList<GameGenre>()"></select>
+                        <span asp-validation-for="Genre" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Engines" class="control-label"></label>
+                        <input type="file" asp-for="Engines" class="form-control" />
+                        <span asp-validation-for="Engines" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-success float-end" />
+                        <a class="btn btn-secondary" asp-action="Index">Back</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

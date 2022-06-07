@@ -1,8 +1,68 @@
-@model Gpu
+@model IEnumerable<Gpu>
 
 @{
-    ViewBag.Title = "title";
+    ViewBag.Title = "Gpu";
     Layout = "_Layout";
 }
 
-<h2>title</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gpu</title>
+</head>
+<body>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered table-sm">
+            <thead class="table-dark">
+            <tr class="text-center">
+                <th>@Html.DisplayNameFor(x => x.GpuId)</th>
+                <th>@Html.DisplayNameFor(x => x.GpuModel)</th>
+                <th>@Html.DisplayNameFor(x => x.Company)</th>
+                <th>@Html.DisplayNameFor(x => x.Rgb)</th>
+                <th>@Html.DisplayNameFor(x => x.Memory)</th>
+                <th>@Html.DisplayNameFor(x => x.SupportedMemoriesGPU)</th>
+                <th>@Html.DisplayNameFor(x => x.Price)</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var x in Model)
+            {
+                <tr class="text-center">
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => x.GpuId)
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => x.GpuModel)
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => x.Company)
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => x.Rgb)
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => x.Memory)
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => x.SupportedMemoriesGPU)
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => x.Price)
+                    </td>
+                    <td class="align-middle">
+                        <a class="btn btn-success" asp-action="Edit" asp-route-id="@x.GpuId">Edit</a>
+                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@x.GpuId">Delete</a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="text-white">
+    <a asp-controller="Gpu" asp-action="Create" class="btn btn btn-dark">Add Gpu</a>
+    </div>
+</body>
+</html>
