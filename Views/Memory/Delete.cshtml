@@ -1,67 +1,67 @@
-﻿@using GameHelperApp.Enums
 @model Memory
 
 @{
-    ViewBag.Title = "Add new Memory";
+    ViewBag.Title = "Delete Memory";
     Layout = "_Layout";
 }
 
 <div class="row text">
     <div class="col-md-8 offset-2">
         <p>
-            <h1>Add new Memory</h1>
+            <h1>Delete @Model.MemoryName</h1>
         </p>
         <div class="row">
             <div class="col-md-8 offset-2">
-                <form asp-action="Create">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-                    <div class="form-group">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
                         <label asp-for="MemoryName" class="control-label"></label>
-                        <input asp-for="MemoryName" class="form-control" />
+                        <input asp-for="MemoryName" class="form-control" readonly/>
                         <span asp-validation-for="MemoryName" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Ram" class="control-label"></label>
-                        <input asp-for="Ram" class="form-control" />
+                        <input asp-for="Ram" class="form-control" readonly/>
                         <span asp-validation-for="Ram" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Modules" class="control-label"></label>
-                        <input asp-for="Modules" class="form-control" />
+                        <input asp-for="Modules" class="form-control" readonly/>
                         <span asp-validation-for="Modules" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Timing" class="control-label"></label>
-                        <input asp-for="Timing" class="form-control" />
+                        <input asp-for="Timing" class="form-control" readonly/>
                         <span asp-validation-for="Timing" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Producer" class="control-label"></label>
-                        <input asp-for="Producer" class="form-control"></input>
+                        <input asp-for="Producer" class="form-control" readonly></input>
                         <span asp-validation-for="Producer" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Rgb" class="control-label"></label>
-                        <p>Select if it has RGB: <input asp-for="Rgb"/></p>
+                        <p>Select if it has RGB: <input asp-for="Rgb" disabled/></p>
                         <span asp-validation-for="Rgb" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Delays" class="control-label"></label>
-                        <input asp-for="Delays" class="form-control" />
+                        <input asp-for="Delays" class="form-control" readonly/>
                         <span asp-validation-for="Delays" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Price" class="control-label"></label>
-                        <input asp-for="Price" class="form-control" />
+                        <input asp-for="Price" class="form-control" readonly/>
                         <span asp-validation-for="Price" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <input type="submit" value="Create" class="btn btn-success float-end" />
+                        <form asp-action="Delete">
+                            <input type="hidden" asp-for="MemoryId" />
+                            <input type="submit" value="Accept" class="btn btn-danger float-end" />
+                        </form>
                         <a class="btn btn-secondary" asp-action="Index">Back</a>
                     </div>
-                </form>
             </div>
         </div>
     </div>
 </div>
+

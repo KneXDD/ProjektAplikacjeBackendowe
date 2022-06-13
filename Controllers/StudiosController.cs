@@ -7,9 +7,9 @@ namespace GameHelperApp.Controllers;
 
 public class StudiosController : Controller
 {
-    private readonly IServices<Engines> _service;
+    private readonly IServices<Studios> _service;
 
-    public StudiosController(IServices<Engines> service)
+    public StudiosController(IServices<Studios> service)
     {
         _service = service;
     }
@@ -25,13 +25,13 @@ public class StudiosController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create([Bind("Name,ReleaseDate,Developer,License,EngineDescription,EngineLogo")] Engines engines)
+    public async Task<IActionResult> Create([Bind("Name,YearOfEstablishment,Country,CompanyDescriptiopn,Logo,NumberOfWorkers")] Studios studios)
     {
         if (!ModelState.IsValid)
         {
-            return View(engines);
+            return View(studios);
         }
-        await _service.AddAsync(engines);
+        await _service.AddAsync(studios);
         return RedirectToAction(nameof(Index));
     }
     public async Task<IActionResult> Edit(int id)
@@ -46,13 +46,13 @@ public class StudiosController : Controller
     }
 
     [HttpPost, ActionName("Edit")]
-    public async Task<IActionResult> Edit(int id, Engines engines)
+    public async Task<IActionResult> Edit(int id, Studios studios)
     {
         if (!ModelState.IsValid)
         {
-            return View(engines);
+            return View(studios);
         }
-        await _service.UpdateAsync(id, engines);
+        await _service.UpdateAsync(id, studios);
         return RedirectToAction(nameof(Index));
     }
     

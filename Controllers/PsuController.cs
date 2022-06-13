@@ -7,9 +7,9 @@ namespace GameHelperApp.Controllers;
 
 public class PsuController : Controller
 {
-    private readonly IServices<Engines> _service;
+    private readonly IServices<Psu> _service;
 
-    public PsuController(IServices<Engines> service)
+    public PsuController(IServices<Psu> service)
     {
         _service = service;
     }
@@ -25,13 +25,13 @@ public class PsuController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create([Bind("Name,ReleaseDate,Developer,License,EngineDescription,EngineLogo")] Engines engines)
+    public async Task<IActionResult> Create([Bind("PsuModel,Power,Cabling,Rgb,Price")] Psu psu)
     {
         if (!ModelState.IsValid)
         {
-            return View(engines);
+            return View(psu);
         }
-        await _service.AddAsync(engines);
+        await _service.AddAsync(psu);
         return RedirectToAction(nameof(Index));
     }
     public async Task<IActionResult> Edit(int id)
@@ -46,13 +46,13 @@ public class PsuController : Controller
     }
 
     [HttpPost, ActionName("Edit")]
-    public async Task<IActionResult> Edit(int id, Engines engines)
+    public async Task<IActionResult> Edit(int id, Psu psu)
     {
         if (!ModelState.IsValid)
         {
-            return View(engines);
+            return View(psu);
         }
-        await _service.UpdateAsync(id, engines);
+        await _service.UpdateAsync(id, psu);
         return RedirectToAction(nameof(Index));
     }
     

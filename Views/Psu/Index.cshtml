@@ -1,14 +1,14 @@
 @model IEnumerable<Psu>
 
 @{
-    ViewBag.Title = "title";
+    ViewBag.Title = "Psu";
     Layout = "_Layout";
 }
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Games</title>
+    <title>Psu</title>
 </head>
 <body>
 <div class="row">
@@ -16,12 +16,12 @@
         <table class="table table-bordered table-sm">
             <thead class="table-dark">
             <tr class="text-center">
-                <th>@Html.DisplayNameFor(x => x.GameId)</th>
-                <th>@Html.DisplayNameFor(x => x.Name)</th>
-                <th>@Html.DisplayNameFor(x => x.ReleaseDate)</th>
-                <th>@Html.DisplayNameFor(x => x.Genre)</th>
-                <th>@Html.DisplayNameFor(x => x.Studios)</th>
-                <th>@Html.DisplayNameFor(x => x.Engines)</th>
+                <th>@Html.DisplayNameFor(x => x.PsuId)</th>
+                <th>@Html.DisplayNameFor(x => x.PsuModel)</th>
+                <th>@Html.DisplayNameFor(x => x.Power)</th>
+                <th>@Html.DisplayNameFor(x => x.Cabling)</th>
+                <th>@Html.DisplayNameFor(x => x.Rgb)</th>
+                <th>@Html.DisplayNameFor(x => x.Price)</th>
                 <th>Actions</th>
             </tr>
             </thead>
@@ -30,26 +30,26 @@
             {
                 <tr class="text-center">
                     <td class="align-middle">
-                        @Html.DisplayFor(modelItem => x.GameId)
+                        @Html.DisplayFor(modelItem => x.PsuId)
                     </td>
                     <td class="align-middle">
-                        @Html.DisplayFor(modelItem => x.Name)
+                        @Html.DisplayFor(modelItem => x.PsuModel)
                     </td>
                     <td class="align-middle">
-                        @Html.DisplayFor(modelItem => x.ReleaseDate)
+                        @Html.DisplayFor(modelItem => x.Power)
                     </td>
                     <td class="align-middle">
-                        @Html.DisplayFor(modelItem => x.Genre)
+                        @Html.DisplayFor(modelItem => x.Cabling)
                     </td>
                     <td class="align-middle">
-                        @Html.DisplayFor(modelItem => x.Studios)
+                        @Html.DisplayFor(modelItem => x.Rgb)
                     </td>
                     <td class="align-middle">
-                        @Html.DisplayFor(modelItem => x.Engines)
+                        @Html.DisplayFor(modelItem => x.Price)
                     </td>
                     <td class="align-middle">
-                        <a class="btn btn-success" asp-action="Edit" asp-route-id="@x.GameId">Edit</a>
-                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@x.GameId">Delete</a>
+                        <a class="btn btn-success" asp-action="Edit" asp-route-id="@x.PsuId">Edit</a>
+                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@x.PsuId">Delete</a>
                     </td>
                 </tr>
             }
@@ -58,7 +58,7 @@
     </div>
 </div>
 <div class="text-white">
-    <a asp-controller="Games" asp-action="Create" class="btn btn btn-dark">Add Game</a>
+    <a asp-controller="Psu" asp-action="Create" class="btn btn btn-dark">Add Psu</a>
     </div>
 </body>
 </html>

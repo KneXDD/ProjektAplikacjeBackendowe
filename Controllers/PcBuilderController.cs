@@ -7,9 +7,9 @@ namespace GameHelperApp.Controllers;
 
 public class PcBuilderController : Controller
 {
-    private readonly IServices<Engines> _service;
+    private readonly IServices<PcBuilder> _service;
 
-    public PcBuilderController(IServices<Engines> service)
+    public PcBuilderController(IServices<PcBuilder> service)
     {
         _service = service;
     }
@@ -25,13 +25,13 @@ public class PcBuilderController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create([Bind("Name,ReleaseDate,Developer,License,EngineDescription,EngineLogo")] Engines engines)
+    public async Task<IActionResult> Create([Bind("Cpu,Motherboard,Memory,Storge,Gpu,Case,Psu,Description")] PcBuilder pcBuilder)
     {
         if (!ModelState.IsValid)
         {
-            return View(engines);
+            return View(pcBuilder);
         }
-        await _service.AddAsync(engines);
+        await _service.AddAsync(pcBuilder);
         return RedirectToAction(nameof(Index));
     }
     public async Task<IActionResult> Edit(int id)
@@ -46,13 +46,13 @@ public class PcBuilderController : Controller
     }
 
     [HttpPost, ActionName("Edit")]
-    public async Task<IActionResult> Edit(int id, Engines engines)
+    public async Task<IActionResult> Edit(int id, PcBuilder pcBuilder)
     {
         if (!ModelState.IsValid)
         {
-            return View(engines);
+            return View(pcBuilder);
         }
-        await _service.UpdateAsync(id, engines);
+        await _service.UpdateAsync(id, pcBuilder);
         return RedirectToAction(nameof(Index));
     }
     

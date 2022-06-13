@@ -7,9 +7,9 @@ namespace GameHelperApp.Controllers;
 
 public class StorgeController : Controller
 {
-    private readonly IServices<Engines> _service;
+    private readonly IServices<Storge> _service;
 
-    public StorgeController(IServices<Engines> service)
+    public StorgeController(IServices<Storge> service)
     {
         _service = service;
     }
@@ -25,13 +25,13 @@ public class StorgeController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create([Bind("Name,ReleaseDate,Developer,License,EngineDescription,EngineLogo")] Engines engines)
+    public async Task<IActionResult> Create([Bind("StorgeName,Producer,SSD,ReadSpeed,WriteSpeed,Interface,Capacity,Price")] Storge storge)
     {
         if (!ModelState.IsValid)
         {
-            return View(engines);
+            return View(storge);
         }
-        await _service.AddAsync(engines);
+        await _service.AddAsync(storge);
         return RedirectToAction(nameof(Index));
     }
     public async Task<IActionResult> Edit(int id)
@@ -46,13 +46,13 @@ public class StorgeController : Controller
     }
 
     [HttpPost, ActionName("Edit")]
-    public async Task<IActionResult> Edit(int id, Engines engines)
+    public async Task<IActionResult> Edit(int id, Storge storge)
     {
         if (!ModelState.IsValid)
         {
-            return View(engines);
+            return View(storge);
         }
-        await _service.UpdateAsync(id, engines);
+        await _service.UpdateAsync(id, storge);
         return RedirectToAction(nameof(Index));
     }
     

@@ -1,56 +1,56 @@
-﻿@using GameHelperApp.Enums
 @model Motherboard
 
 @{
-    ViewBag.Title = "Add new Motherboard";
+    ViewBag.Title = "Delete Motherboard";
     Layout = "_Layout";
 }
 
 <div class="row text">
     <div class="col-md-8 offset-2">
         <p>
-            <h1>Add new Motherboard</h1>
+            <h1>Delete @Model.MotherboardName</h1>
         </p>
         <div class="row">
             <div class="col-md-8 offset-2">
-                <form asp-action="Create">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                     <div class="form-group">
                         <label asp-for="MotherboardName" class="control-label"></label>
-                        <input asp-for="MotherboardName" class="form-control" />
+                        <input asp-for="MotherboardName" class="form-control" readonly/>
                         <span asp-validation-for="MotherboardName" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="SocketNumber" class="control-label"></label>
-                        <input asp-for="SocketNumber" class="form-control" />
+                        <input asp-for="SocketNumber" class="form-control" readonly/>
                         <span asp-validation-for="SocketNumber" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Producer" class="control-label"></label>
-                        <input asp-for="Producer" class="form-control" />
+                        <input asp-for="Producer" class="form-control" readonly/>
                         <span asp-validation-for="Producer" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Rgb" class="control-label"></label>
-                        <p>Select if it has RGB: <input asp-for="Rgb"/></p>
+                        <p>Select if it has RGB: <input asp-for="Rgb" disabled/></p>
                         <span asp-validation-for="Rgb" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="CaseType" class="control-label"></label>
-                        <select asp-for="CaseType" class="form-control" asp-items="Html.GetEnumSelectList<CaseType>()"></select>
+                        <input asp-for="CaseType" class="form-control" readonly></input>
                         <span asp-validation-for="CaseType" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Price" class="control-label"></label>
-                        <input asp-for="Price" class="form-control" />
+                        <input asp-for="Price" class="form-control" readonly/>
                         <span asp-validation-for="Price" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <input type="submit" value="Create" class="btn btn-success float-end" />
+                        <form asp-action="Delete">
+                            <input type="hidden" asp-for="MotherboardId" />
+                            <input type="submit" value="Accept" class="btn btn-danger float-end" />
+                        </form>
                         <a class="btn btn-secondary" asp-action="Index">Back</a>
                     </div>
-                </form>
             </div>
         </div>
     </div>

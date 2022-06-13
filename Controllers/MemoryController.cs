@@ -1,3 +1,4 @@
+using GameHelperApp.Models;
 using GameHelperApp.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -6,9 +7,9 @@ namespace GameHelperApp.Controllers;
 
 public class MemoryController : Controller
 {
-    private readonly IServices<Engines> _service;
+    private readonly IServices<Memory> _service;
 
-    public MemoryController(IServices<Engines> service)
+    public MemoryController(IServices<Memory> service)
     {
         _service = service;
     }
@@ -24,13 +25,13 @@ public class MemoryController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create([Bind("Name,ReleaseDate,Developer,License,EngineDescription,EngineLogo")] Engines engines)
+    public async Task<IActionResult> Create([Bind("MemoryName,Ram,Modules,Timing,Producer,Rgb,Delays,Price")] Memory memory)
     {
         if (!ModelState.IsValid)
         {
-            return View(engines);
+            return View(memory);
         }
-        await _service.AddAsync(engines);
+        await _service.AddAsync(memory);
         return RedirectToAction(nameof(Index));
     }
     public async Task<IActionResult> Edit(int id)
@@ -45,13 +46,13 @@ public class MemoryController : Controller
     }
 
     [HttpPost, ActionName("Edit")]
-    public async Task<IActionResult> Edit(int id, Engines engines)
+    public async Task<IActionResult> Edit(int id, Memory memory)
     {
         if (!ModelState.IsValid)
         {
-            return View(engines);
+            return View(memory);
         }
-        await _service.UpdateAsync(id, engines);
+        await _service.UpdateAsync(id, memory);
         return RedirectToAction(nameof(Index));
     }
     

@@ -11,6 +11,14 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IServices<Case>, CaseService>();
 builder.Services.AddScoped<IServices<Cpu>, CpuService>();
 builder.Services.AddScoped<IServices<Engines>, EnginesService>();
+builder.Services.AddScoped<IServices<Games>, GamesService>();
+builder.Services.AddScoped<IServices<Gpu>, GpuService>();
+builder.Services.AddScoped<IServices<Memory>, MemoryService>();
+builder.Services.AddScoped<IServices<Motherboard>, MotherboardService>();
+builder.Services.AddScoped<IServices<PcBuilder>, PcBuilderService>();
+builder.Services.AddScoped<IServices<Psu>, PsuService>();
+builder.Services.AddScoped<IServices<Storge>, StorgeService>();
+builder.Services.AddScoped<IServices<Studios>, StudiosService>();
 // Creating a database connection. The connection source is taken from appsettings.json (MY)
 //Connection String
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("GameHelperDB")));

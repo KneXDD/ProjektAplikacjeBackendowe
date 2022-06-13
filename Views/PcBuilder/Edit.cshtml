@@ -1,21 +1,22 @@
-﻿@using GameHelperApp.Enums
-@model PcBuilder    
+@model PcBuilder
 
 @{
-    ViewBag.Title = "Add new Pc";
+    ViewBag.Title = "Update Pc";
     Layout = "_Layout";
 }
 
 <div class="row text">
     <div class="col-md-8 offset-2">
         <p>
-            <h1>Add new Pc</h1>
+            <h1>Update Pc</h1>
         </p>
         <div class="row">
             <div class="col-md-8 offset-2">
-                <form asp-action="Create">
+                <form asp-action="Edit">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
+                    <div class="form-group">
+                        <input asp-for="PcBuilderId" class="form-control" hidden/>
+                    </div>
                     <div class="form-group">
                         <label asp-for="Cpu" class="control-label"></label>
                         <input asp-for="Cpu" class="form-control" />
@@ -57,7 +58,7 @@
                         <span asp-validation-for="Description" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <input type="submit" value="Create" class="btn btn-success float-end" />
+                        <input type="submit" value="Update" class="btn btn-success float-end" />
                         <a class="btn btn-secondary" asp-action="Index">Back</a>
                     </div>
                 </form>

@@ -7,9 +7,9 @@ namespace GameHelperApp.Controllers;
 
 public class GpuController : Controller
 {
-    private readonly IServices<Engines> _service;
+    private readonly IServices<Gpu> _service;
 
-    public GpuController(IServices<Engines> service)
+    public GpuController(IServices<Gpu> service)
     {
         _service = service;
     }
@@ -25,13 +25,13 @@ public class GpuController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create([Bind("Name,ReleaseDate,Developer,License,EngineDescription,EngineLogo")] Engines engines)
+    public async Task<IActionResult> Create([Bind("SupportedMemoriesGPU,GpuModel,Company,Rgb,Memory,Price")] Gpu gpu)
     {
         if (!ModelState.IsValid)
         {
-            return View(engines);
+            return View(gpu);
         }
-        await _service.AddAsync(engines);
+        await _service.AddAsync(gpu);
         return RedirectToAction(nameof(Index));
     }
     public async Task<IActionResult> Edit(int id)
@@ -46,13 +46,13 @@ public class GpuController : Controller
     }
 
     [HttpPost, ActionName("Edit")]
-    public async Task<IActionResult> Edit(int id, Engines engines)
+    public async Task<IActionResult> Edit(int id, Gpu gpu)
     {
         if (!ModelState.IsValid)
         {
-            return View(engines);
+            return View(gpu);
         }
-        await _service.UpdateAsync(id, engines);
+        await _service.UpdateAsync(id, gpu);
         return RedirectToAction(nameof(Index));
     }
     

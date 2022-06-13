@@ -1,51 +1,51 @@
-﻿@using GameHelperApp.Enums
 @model Psu
 
 @{
-    ViewBag.Title = "Add new Psu";
+    ViewBag.Title = "Delete Psu";
     Layout = "_Layout";
 }
 
 <div class="row text">
     <div class="col-md-8 offset-2">
         <p>
-            <h1>Add new Psu</h1>
+            <h1>Delete @Model.PsuModel</h1>
         </p>
         <div class="row">
             <div class="col-md-8 offset-2">
-                <form asp-action="Create">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                     <div class="form-group">
                         <label asp-for="PsuModel" class="control-label"></label>
-                        <input asp-for="PsuModel" class="form-control" />
+                        <input asp-for="PsuModel" class="form-control" readonly/>
                         <span asp-validation-for="PsuModel" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Power" class="control-label"></label>
-                        <input asp-for="Power" class="form-control" />
+                        <input asp-for="Power" class="form-control" readonly/>
                         <span asp-validation-for="Power" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Rgb" class="control-label"></label>
-                        <p>Select if it has RGB: <input asp-for="Rgb"/></p>
+                        <p>Select if it has RGB: <input asp-for="Rgb" disabled/></p>
                         <span asp-validation-for="Rgb" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Cabling" class="control-label"></label>
-                        <select asp-for="Cabling" class="form-control" asp-items="Html.GetEnumSelectList<Cabling>()"></select>
+                        <input asp-for="Cabling" class="form-control" readonly/>
                         <span asp-validation-for="Cabling" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Price" class="control-label"></label>
-                        <input asp-for="Price" class="form-control" />
+                        <input asp-for="Price" class="form-control" readonly/>
                         <span asp-validation-for="Price" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <input type="submit" value="Create" class="btn btn-success float-end" />
+                        <form asp-action="Delete">
+                            <input type="hidden" asp-for="PsuId" />
+                            <input type="submit" value="Accept" class="btn btn-danger float-end" />
+                        </form>
                         <a class="btn btn-secondary" asp-action="Index">Back</a>
                     </div>
-                </form>
             </div>
         </div>
     </div>

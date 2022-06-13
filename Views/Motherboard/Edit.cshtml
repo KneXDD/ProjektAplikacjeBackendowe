@@ -1,44 +1,37 @@
-﻿@using GameHelperApp.Enums
-@model Memory
+@using GameHelperApp.Enums
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model Motherboard
 
 @{
-    ViewBag.Title = "Add new Memory";
+    ViewBag.Title = "Update Motherboard";
     Layout = "_Layout";
 }
 
 <div class="row text">
     <div class="col-md-8 offset-2">
         <p>
-            <h1>Add new Memory</h1>
+            <h1>Update @Model.MotherboardName</h1>
         </p>
         <div class="row">
             <div class="col-md-8 offset-2">
-                <form asp-action="Create">
+                <form asp-action="Edit">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
                     <div class="form-group">
-                        <label asp-for="MemoryName" class="control-label"></label>
-                        <input asp-for="MemoryName" class="form-control" />
-                        <span asp-validation-for="MemoryName" class="text-danger"></span>
+                        <input asp-for="MotherboardId" class="form-control" hidden/>
                     </div>
                     <div class="form-group">
-                        <label asp-for="Ram" class="control-label"></label>
-                        <input asp-for="Ram" class="form-control" />
-                        <span asp-validation-for="Ram" class="text-danger"></span>
+                        <label asp-for="MotherboardName" class="control-label"></label>
+                        <input asp-for="MotherboardName" class="form-control" />
+                        <span asp-validation-for="MotherboardName" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="Modules" class="control-label"></label>
-                        <input asp-for="Modules" class="form-control" />
-                        <span asp-validation-for="Modules" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Timing" class="control-label"></label>
-                        <input asp-for="Timing" class="form-control" />
-                        <span asp-validation-for="Timing" class="text-danger"></span>
+                        <label asp-for="SocketNumber" class="control-label"></label>
+                        <input asp-for="SocketNumber" class="form-control" />
+                        <span asp-validation-for="SocketNumber" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Producer" class="control-label"></label>
-                        <input asp-for="Producer" class="form-control"></input>
+                        <input asp-for="Producer" class="form-control" />
                         <span asp-validation-for="Producer" class="text-danger"></span>
                     </div>
                     <div class="form-group">
@@ -47,9 +40,9 @@
                         <span asp-validation-for="Rgb" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="Delays" class="control-label"></label>
-                        <input asp-for="Delays" class="form-control" />
-                        <span asp-validation-for="Delays" class="text-danger"></span>
+                        <label asp-for="CaseType" class="control-label"></label>
+                        <select asp-for="CaseType" class="form-control" asp-items="Html.GetEnumSelectList<CaseType>()"></select>
+                        <span asp-validation-for="CaseType" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Price" class="control-label"></label>
@@ -57,7 +50,7 @@
                         <span asp-validation-for="Price" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <input type="submit" value="Create" class="btn btn-success float-end" />
+                        <input type="submit" value="Update" class="btn btn-success float-end" />
                         <a class="btn btn-secondary" asp-action="Index">Back</a>
                     </div>
                 </form>

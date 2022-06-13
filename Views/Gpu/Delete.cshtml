@@ -1,57 +1,57 @@
-﻿@using GameHelperApp.Enums
 @model Gpu
 
 @{
-    ViewBag.Title = "Add new Gpu";
+    ViewBag.Title = "Delete Gpu";
     Layout = "_Layout";
 }
 
 <div class="row text">
     <div class="col-md-8 offset-2">
         <p>
-            <h1>Add new Gpu</h1>
+            <h1>Delete @Model.GpuModel</h1>
         </p>
         <div class="row">
             <div class="col-md-8 offset-2">
-                <form asp-action="Create">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-                    <div class="form-group">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
                         <label asp-for="GpuModel" class="control-label"></label>
-                        <input asp-for="GpuModel" class="form-control" />
+                        <input asp-for="GpuModel" class="form-control" readonly/>
                         <span asp-validation-for="GpuModel" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Company" class="control-label"></label>
-                        <input asp-for="Company" class="form-control" />
+                        <input asp-for="Company" class="form-control" readonly/>
                         <span asp-validation-for="Company" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Rgb" class="control-label"></label>
-                        <input asp-for="Rgb" class="form-control" />
+                        <input asp-for="Rgb" class="form-control" disabled/>
                         <span asp-validation-for="Rgb" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Memory" class="control-label"></label>
-                        <input asp-for="Memory" class="form-control" />
+                        <input asp-for="Memory" class="form-control" readonly/>
                         <span asp-validation-for="Memory" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="SupportedMemoriesGPU" class="control-label"></label>
-                        <select asp-for="SupportedMemoriesGPU" class="form-control" asp-items="Html.GetEnumSelectList<SupportedMemoriesGPU>()"></select>
+                        <select asp-for="SupportedMemoriesGPU" class="form-control" readonly></select>
                         <span asp-validation-for="SupportedMemoriesGPU" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Price" class="control-label"></label>
-                        <input asp-for="Price" class="form-control" />
+                        <input asp-for="Price" class="form-control" readonly/>
                         <span asp-validation-for="Price" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <input type="submit" value="Create" class="btn btn-success float-end" />
+                        <form asp-action="Delete">
+                            <input type="hidden" asp-for="GpuId" />
+                            <input type="submit" value="Accept" class="btn btn-danger float-end" />
+                        </form>
                         <a class="btn btn-secondary" asp-action="Index">Back</a>
                     </div>
-                </form>
             </div>
         </div>
     </div>
 </div>
+

@@ -1,3 +1,4 @@
+using GameHelperApp.Models;
 using GameHelperApp.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -6,9 +7,9 @@ namespace GameHelperApp.Controllers;
 
 public class MotherboardController : Controller
 {
-    private readonly IServices<Engines> _service;
+    private readonly IServices<Motherboard> _service;
 
-    public MotherboardController(IServices<Engines> service)
+    public MotherboardController(IServices<Motherboard> service)
     {
         _service = service;
     }
@@ -24,13 +25,13 @@ public class MotherboardController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create([Bind("Name,ReleaseDate,Developer,License,EngineDescription,EngineLogo")] Engines engines)
+    public async Task<IActionResult> Create([Bind("MotherboardName,SocketNumber,Producer,Rgb,CaseType,Price")] Motherboard motherboard)
     {
         if (!ModelState.IsValid)
         {
-            return View(engines);
+            return View(motherboard);
         }
-        await _service.AddAsync(engines);
+        await _service.AddAsync(motherboard);
         return RedirectToAction(nameof(Index));
     }
     public async Task<IActionResult> Edit(int id)
@@ -45,13 +46,13 @@ public class MotherboardController : Controller
     }
 
     [HttpPost, ActionName("Edit")]
-    public async Task<IActionResult> Edit(int id, Engines engines)
+    public async Task<IActionResult> Edit(int id, Motherboard motherboard)
     {
         if (!ModelState.IsValid)
         {
-            return View(engines);
+            return View(motherboard);
         }
-        await _service.UpdateAsync(id, engines);
+        await _service.UpdateAsync(id, motherboard);
         return RedirectToAction(nameof(Index));
     }
     

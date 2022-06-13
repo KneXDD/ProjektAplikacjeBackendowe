@@ -25,7 +25,7 @@ public class GamesController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create([Bind("Name,ReleaseDate,Developer,License,EngineDescription,EngineLogo")] Games games)
+    public async Task<IActionResult> Create([Bind("Name,Genre,ReleaseDate,Cover,Studios,Engines")] Games games)
     {
         if (!ModelState.IsValid)
         {
