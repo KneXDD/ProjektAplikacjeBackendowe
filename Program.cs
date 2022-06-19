@@ -24,6 +24,7 @@ builder.Services.AddScoped<IServices<Studios>, StudiosService>();
 builder.Services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
 builder.Services.AddMemoryCache();
 builder.Services.AddSession();
+builder.Services.AddScoped<Initializer>();
 builder.Services.AddAuthentication(x =>
 {
     x.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -32,6 +33,7 @@ builder.Services.AddAuthentication(x =>
 //Connection String
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("GameHelperDB")));
 var app = builder.Build();
+var scope = app.Services.CreateScope().ServiceProvider.GetRequiredService<Initializer>();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -40,6 +42,8 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+scope.SeedUsersAndRolesAsync(app);
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
@@ -58,5 +62,3 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
-
-Initializer.SeedUsersAndRolesAsync(app).Wait();

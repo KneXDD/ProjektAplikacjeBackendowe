@@ -1,4 +1,5 @@
 using GameHelperApp.Models;
+using GameHelperApp.Static;
 using GameHelperApp.ViewModel;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -45,5 +46,39 @@ public class AccountController:Controller
             }
             TempData["Error"] = "Please try again!";
             return View(loginViewModel);
+    }
+    public IActionResult Register()
+    {
+        return View(new RegisterViewModel());
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Register(RegisterViewModel registerViewModel)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View(registerViewModel);
         }
+
+        var user = await _userManager.FindByEmailAsync(registerViewModel.EmailAddress);
+        if (user != null)
+        {
+            TempData["Error"] = "This email address is already in use";
+            return View(registerViewModel);
+        }
+
+        var newUser = new AppUser()
+        {
+            FullName = registerViewModel.FullName,
+            Email = registerViewModel.EmailAddress,
+            UserName = registerViewModel.EmailAddress
+        };
+        var newUserResponse = await _userManager.CreateAsync(newUser, registerViewModel.Password);
+        if (newUserResponse.Succeeded)
+        {
+            await _userManager.AddToRoleAsync(newUser, UserRoles.User);
+        }
+
+        return View("RegisterCompleted");
+    }
 }

@@ -6,7 +6,7 @@ namespace GameHelperApp;
 
 public class Initializer
 {
-    public static async Task SeedUsersAndRolesAsync(IApplicationBuilder applicationBuilder)
+    public async Task SeedUsersAndRolesAsync(IApplicationBuilder applicationBuilder)
     {
         using (var serviceScope = applicationBuilder.ApplicationServices.CreateScope())
         {
