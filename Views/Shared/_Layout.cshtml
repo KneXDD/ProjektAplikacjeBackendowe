@@ -43,6 +43,19 @@
                         <a class="nav-link text-light" asp-area="" asp-controller="Case" asp-action="Index">Case</a>
                     </li>
                 </ul>
+                
+                <a class="btn btn-success my-2 my-sm-0" asp-controller="Account" asp-action="Login">Login</a>
+                
+                <div class="nav-item dropdown">
+                    <button class="btn btn-success dropdown-toggle" type="button" id="profile-btn" data-bs-toggle="dropdown" aria-expanded="false">
+                        Hello User
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdown">
+                        <li>
+                            <a class="nav-link dropdown-item" asp-controller="" asp-action="Index">Account</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </nav>

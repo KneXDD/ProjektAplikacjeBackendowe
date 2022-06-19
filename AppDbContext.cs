@@ -1,9 +1,10 @@
 ﻿using GameHelperApp.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace GameHelperApp;
 
-public class AppDbContext:DbContext
+public class AppDbContext:IdentityDbContext<AppUser>
 {
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
     {
@@ -21,5 +22,7 @@ public class AppDbContext:DbContext
     public DbSet<Motherboard> Motherboard { get; set; }
     public DbSet<Psu> Psu { get; set; }
     public DbSet<Storge> Storge { get; set; }
+    
+    public DbSet<AppUser> AppUser { get; set; }
     
 }

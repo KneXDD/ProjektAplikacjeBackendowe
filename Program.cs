@@ -1,6 +1,8 @@
 using GameHelperApp;
 using GameHelperApp.Models;
 using GameHelperApp.Services;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,6 +21,13 @@ builder.Services.AddScoped<IServices<PcBuilder>, PcBuilderService>();
 builder.Services.AddScoped<IServices<Psu>, PsuService>();
 builder.Services.AddScoped<IServices<Storge>, StorgeService>();
 builder.Services.AddScoped<IServices<Studios>, StudiosService>();
+builder.Services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
+builder.Services.AddMemoryCache();
+builder.Services.AddSession();
+builder.Services.AddAuthentication(x =>
+{
+    x.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+});
 // Creating a database connection. The connection source is taken from appsettings.json (MY)
 //Connection String
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("GameHelperDB")));
@@ -36,6 +45,11 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseSession();
+
+//Autorization
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.UseAuthorization();
 
@@ -45,3 +59,4 @@ app.MapControllerRoute(
 
 app.Run();
 
+Initializer.SeedUsersAndRolesAsync(app).Wait();
