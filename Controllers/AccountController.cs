@@ -81,4 +81,11 @@ public class AccountController:Controller
 
         return View("RegisterCompleted");
     }
+
+    [HttpPost]
+    public async Task<IActionResult> Logout()
+    {
+        await _signInManager.SignOutAsync();
+        return RedirectToAction("Index", "Home");
+    }
 }
