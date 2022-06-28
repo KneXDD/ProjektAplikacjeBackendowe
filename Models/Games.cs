@@ -16,7 +16,7 @@ public class Games
     [DisplayName("Release Date")]
     public DateTime ReleaseDate { get; set; }
 
-    public Byte[] Cover { get; set; }
+    public string Cover { get; set; }
     
     //Foreign Key (MY)
     public Studios Studios { get; set; }

@@ -21,6 +21,6 @@ public class Engines
     public string EngineDescription { get; set; }
 
     [DisplayName("Engine Logo")]
-    public Byte[] EngineLogo { get; set; }
+    public string EngineLogo { get; set; }
     
 }

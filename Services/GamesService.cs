@@ -1,9 +1,10 @@
 ﻿using GameHelperApp.Models;
+using GameHelperApp.ViewModel;
 using Microsoft.EntityFrameworkCore;
 
 namespace GameHelperApp.Services;
 
-public class GamesService: IServices<Games>
+public class GamesService: IGameService<Games>
 {
     private readonly AppDbContext _context;
     
@@ -41,5 +42,15 @@ public class GamesService: IServices<Games>
         var result = await _context.Games.FirstOrDefaultAsync(x => x.GameId == id);
         _context.Games.Remove(result);
         await _context.SaveChangesAsync();
+    }
+
+    public async Task<GamesViewModel> GetGameViewModel()
+    {
+        var result = new GamesViewModel()
+        {
+            Engines = await _context.Engines.OrderBy(n => n.Name).ToListAsync(),
+            Studios = await _context.Studios.OrderBy(n => n.Name).ToListAsync()
+        };
+        return result;
     }
 }

@@ -13,7 +13,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IServices<Case>, CaseService>();
 builder.Services.AddScoped<IServices<Cpu>, CpuService>();
 builder.Services.AddScoped<IServices<Engines>, EnginesService>();
-builder.Services.AddScoped<IServices<Games>, GamesService>();
+builder.Services.AddScoped<IGameService<Games>, GamesService>();
 builder.Services.AddScoped<IServices<Gpu>, GpuService>();
 builder.Services.AddScoped<IServices<Memory>, MemoryService>();
 builder.Services.AddScoped<IServices<Motherboard>, MotherboardService>();

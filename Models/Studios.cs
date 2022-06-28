@@ -20,7 +20,7 @@ public class Studios
     [DisplayName("Company Descriptiopn")]
     public String CompanyDescriptiopn { get; set; }
 
-    public Byte[] Logo { get; set; }
+    public string Logo { get; set; }
 
     [DisplayName("Number Of Workers")]
     public int? NumberOfWorkers { get; set; }

@@ -1,15 +1,16 @@
 using GameHelperApp.Models;
 using GameHelperApp.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace GameHelperApp.Controllers;
 
 public class GamesController : Controller
 {
-    private readonly IServices<Games> _service;
+    private readonly IGameService<Games> _service;
 
-    public GamesController(IServices<Games> service)
+    public GamesController(IGameService<Games> service)
     {
         _service = service;
     }
@@ -19,8 +20,11 @@ public class GamesController : Controller
         return View(data);
     }
     
-    public IActionResult Create()
+    public async Task<IActionResult> Create()
     {
+        var dropdown = await _service.GetGameViewModel();
+        ViewBag.Engines = new SelectList(dropdown.Engines, "EngineId", "Name");
+        ViewBag.Studios = new SelectList(dropdown.Studios, "StudioId", "Name");
         return View();
     }
 
