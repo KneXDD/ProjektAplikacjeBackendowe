@@ -11,6 +11,12 @@
     <title>title</title>
 </head>
 <body>
+<div class="col-md-3">
+<form class="form-inline" asp-controller="Case" asp-action="Search" style="padding-right: 5px;">
+    <input name="search" type="text" class="form-control bg-dark text-white" placeholder="Search by name" aria-label="Recipient's username">
+</form>
+</div>
+<p></p>
 <div class="row">
     <div class="col-md-12">
         <table class="table table-bordered table-sm">
@@ -67,6 +73,6 @@
 </div>
 <div class="text-white">
     <a asp-controller="Case" asp-action="Create" class="btn btn btn-dark">Add Case</a>
-    </div>
+</div>
 </body>
 </html>

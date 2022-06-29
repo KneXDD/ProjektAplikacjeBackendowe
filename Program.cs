@@ -17,7 +17,7 @@ builder.Services.AddScoped<IGameService<Games>, GamesService>();
 builder.Services.AddScoped<IServices<Gpu>, GpuService>();
 builder.Services.AddScoped<IServices<Memory>, MemoryService>();
 builder.Services.AddScoped<IServices<Motherboard>, MotherboardService>();
-builder.Services.AddScoped<IServices<PcBuilder>, PcBuilderService>();
+builder.Services.AddScoped<IPcBuilderService<PcBuilder>, PcBuilderService>();
 builder.Services.AddScoped<IServices<Psu>, PsuService>();
 builder.Services.AddScoped<IServices<Storge>, StorgeService>();
 builder.Services.AddScoped<IServices<Studios>, StudiosService>();

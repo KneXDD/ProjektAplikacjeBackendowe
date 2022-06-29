@@ -1,9 +1,10 @@
 ﻿using GameHelperApp.Models;
+using GameHelperApp.ViewModel;
 using Microsoft.EntityFrameworkCore;
 
 namespace GameHelperApp.Services;
 
-public class PcBuilderService: IServices<PcBuilder>
+public class PcBuilderService: IPcBuilderService<PcBuilder>
 {
     private readonly AppDbContext _context;
     
@@ -41,5 +42,20 @@ public class PcBuilderService: IServices<PcBuilder>
         var result = await _context.PcBuilder.FirstOrDefaultAsync(x => x.PcBuilderId == id);
         _context.PcBuilder.Remove(result);
         await _context.SaveChangesAsync();
+    }
+
+    public async Task<PcBuilderViewMode> PcBuilderViewMode()
+    {
+        var result = new PcBuilderViewMode()
+        {
+            Cpu = await _context.Cpu.OrderBy(n => n.CpuModel).ToListAsync(),
+            Motherboard = await _context.Motherboard.OrderBy(n => n.MotherboardName).ToListAsync(),
+            Memory = await _context.Memory.OrderBy(n => n.MemoryName).ToListAsync(),
+            Storge = await _context.Storge.OrderBy(n => n.StorgeName).ToListAsync(),
+            Gpu = await _context.Gpu.OrderBy(n => n.GpuModel).ToListAsync(),
+            Case = await _context.Case.OrderBy(n => n.Name).ToListAsync(),
+            Psu = await _context.Psu.OrderBy(n => n.PsuModel).ToListAsync()
+        };
+        return result;
     }
 }

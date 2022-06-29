@@ -18,6 +18,16 @@ public class CaseController : Controller
         var data = await _service.GetAllAsync();
         return View(data);
     }
+    public async Task<IActionResult> Search(string search)
+    {
+        var data = await _service.GetAllAsync();
+        if (!string.IsNullOrEmpty(search))
+        {
+            var filter = data.Where(n => n.Name.Contains(search));
+            return View("Index", filter);
+        }
+        return View("Index",data);
+    }
 
     public IActionResult Create()
     {

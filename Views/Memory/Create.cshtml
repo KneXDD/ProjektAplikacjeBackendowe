@@ -23,7 +23,7 @@
                     </div>
                     <div class="form-group">
                         <label asp-for="Ram" class="control-label"></label>
-                        <input asp-for="Ram" class="form-control" />
+                        <select asp-for="Ram" class="form-control" asp-items="Html.GetEnumSelectList<Ram>()"></select>
                         <span asp-validation-for="Ram" class="text-danger"></span>
                     </div>
                     <div class="form-group">
@@ -48,7 +48,7 @@
                     </div>
                     <div class="form-group">
                         <label asp-for="Delays" class="control-label"></label>
-                        <input asp-for="Delays" class="form-control" />
+                        <select asp-for="Delays" class="form-control" asp-items="Html.GetEnumSelectList<Delays>()"> </select>
                         <span asp-validation-for="Delays" class="text-danger"></span>
                     </div>
                     <div class="form-group">

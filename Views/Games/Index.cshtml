@@ -11,6 +11,12 @@
     <title>Games</title>
 </head>
 <body>
+<div class="col-md-3">
+    <form class="form-inline" asp-controller="Games" asp-action="Search" style="padding-right: 5px;">
+        <input name="search" type="text" class="form-control bg-dark text-white" placeholder="Search by name" aria-label="Recipient's username">
+    </form>
+</div>
+<p></p>
 <div class="row">
     <div class="col-md-12">
         <table class="table table-bordered table-sm">
@@ -30,7 +36,7 @@
             @foreach (var x in Model)
             {
                 <tr class="text-center">
-                    <td class = "align-middle">
+                    <td class="align-middle">
                         <img class="rounded-circle" src="@x.Cover" alt="@x.Name" style="max-width: 100px"></img>
                     </td>
                     <td class="align-middle">
@@ -63,6 +69,6 @@
 </div>
 <div class="text-white">
     <a asp-controller="Games" asp-action="Create" class="btn btn btn-dark">Add Game</a>
-    </div>
+</div>
 </body>
 </html>

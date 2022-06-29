@@ -1,15 +1,16 @@
 using GameHelperApp.Models;
 using GameHelperApp.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace GameHelperApp.Controllers;
 
 public class PcBuilderController : Controller
 {
-    private readonly IServices<PcBuilder> _service;
+    private readonly IPcBuilderService<PcBuilder> _service;
 
-    public PcBuilderController(IServices<PcBuilder> service)
+    public PcBuilderController(IPcBuilderService<PcBuilder> service)
     {
         _service = service;
     }
@@ -19,8 +20,16 @@ public class PcBuilderController : Controller
         return View(data);
     }
     
-    public IActionResult Create()
+    public async Task<IActionResult> Create()
     {
+        var dropdown = await _service.PcBuilderViewMode();
+        ViewBag.Cpu = new SelectList(dropdown.Cpu, "CpuId", "CpuModel");
+        ViewBag.Motherboard = new SelectList(dropdown.Motherboard, "MotherboardId", "MotherboardName");
+        ViewBag.Memory = new SelectList(dropdown.Memory, "MemoryId", "MemoryName");
+        ViewBag.Storge = new SelectList(dropdown.Storge, "StorgeId", "StorgeName");
+        ViewBag.Gpu = new SelectList(dropdown.Gpu, "GpuId", "GpuModel");
+        ViewBag.Case = new SelectList(dropdown.Case, "CaseId", "Name");
+        ViewBag.Psu = new SelectList(dropdown.Psu, "PsuId", "PsuModel");
         return View();
     }
 
