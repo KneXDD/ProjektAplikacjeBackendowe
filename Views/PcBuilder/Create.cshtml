@@ -18,37 +18,37 @@
 
                     <div class="form-group">
                         <label asp-for="Cpu" class="control-label"></label>
-                        <input asp-for="Cpu" class="form-control" />
+                        <select asp-for="Cpu" class="form-control" asp-items="ViewBag.Cpu"></select>
                         <span asp-validation-for="Cpu" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Motherboard" class="control-label"></label>
-                        <input asp-for="Motherboard" class="form-control" />
+                        <select asp-for="Motherboard" class="form-control" asp-items="ViewBag.Motherboard"></select>
                         <span asp-validation-for="Motherboard" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Memory" class="control-label"></label>
-                        <input asp-for="Memory" class="form-control" />
+                        <select asp-for="Memory" class="form-control" asp-items="ViewBag.Memory"></select>
                         <span asp-validation-for="Memory" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Storge" class="control-label"></label>
-                        <input asp-for="Storge" class="form-control" />
+                        <select asp-for="Storge" class="form-control" asp-items="ViewBag.Storge"></select>
                         <span asp-validation-for="Storge" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Gpu" class="control-label"></label>
-                        <input asp-for="Gpu" class="form-control"></input>
+                        <select asp-for="Gpu" class="form-control" asp-items="ViewBag.Gpu"></select>
                         <span asp-validation-for="Gpu" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Case" class="control-label"></label>
-                        <input asp-for="Case" class="form-control" />
+                        <select asp-for="Case" class="form-control" asp-items="ViewBag.Case"></select>
                         <span asp-validation-for="Case" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Psu" class="control-label"></label>
-                        <input asp-for="Psu" class="form-control"></input>
+                        <select asp-for="Psu" class="form-control" asp-items="ViewBag.Psu"></select>
                         <span asp-validation-for="Psu" class="text-danger"></span>
                     </div>
                     <div class="form-group">

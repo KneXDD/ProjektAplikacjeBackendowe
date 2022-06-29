@@ -12,11 +12,14 @@ else
         <button class="btn btn-success dropdown-toggle" type="button" id="profile-btn" data-bs-toggle="dropdown" aria-expanded="false">
             Hello @UserManager.GetUserName(User)
         </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdown">
-            <li>
-                <a class="nav-link dropdown-item" asp-controller="" asp-action="Index">Account</a>
-            </li>
-        </ul>
+        @if (User.IsInRole("Admin"))
+        {
+            <ul class="dropdown-menu" aria-labelledby="dropdown">
+                <li>
+                    <a class="nav-link dropdown-item" asp-controller="Account" asp-action="AllUsers">User accounts</a>
+                </li>
+            </ul>
+        }
     </div>
     <span style="padding: 5px;"></span>
     <form asp-controller="Account" asp-action="Logout">

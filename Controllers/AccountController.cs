@@ -3,6 +3,7 @@ using GameHelperApp.Static;
 using GameHelperApp.ViewModel;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace GameHelperApp.Controllers;
 
@@ -16,6 +17,22 @@ public class AccountController:Controller
         _userManager = userManager;
         _signInManager = signInManager;
         _context = context;
+    }
+
+    public async Task<IActionResult> AllUsers()
+    {
+        var users = await _context.Users.ToListAsync();
+        return View(users);
+    }
+    public async Task<IActionResult> Search(string search)
+    {
+        var users = await _context.Users.ToListAsync();
+        if (!string.IsNullOrEmpty(search))
+        {
+            var filter = users.Where(n => n.UserName.Contains(search));
+            return View("AllUsers", filter);
+        }
+        return View("AllUsers",users);
     }
     public IActionResult Login()
     {
