@@ -1,11 +1,14 @@
 using GameHelperApp.Models;
 using GameHelperApp.Services;
+using GameHelperApp.Static;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace GameHelperApp.Controllers;
 
+[Authorize(Roles = UserRoles.Admin)]
 public class GamesController : Controller
 {
     private readonly IGameService<Games> _service;
@@ -14,17 +17,19 @@ public class GamesController : Controller
     {
         _service = service;
     }
+    [AllowAnonymous]
     public async Task<IActionResult> Index()
     {
         var data = await _service.GetAllAsync();
         return View(data);
     }
+    [AllowAnonymous]
     public async Task<IActionResult> Search(string search)
     {
         var data = await _service.GetAllAsync();
         if (!string.IsNullOrEmpty(search))
         {
-            var filter = data.Where(n => n.Name.Contains(search));
+            var filter = data.Where(n => string.Equals(n.Name, search, StringComparison.CurrentCultureIgnoreCase));
             return View("Index", filter);
         }
         return View("Index",data);

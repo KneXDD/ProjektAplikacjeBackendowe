@@ -1,11 +1,13 @@
 using GameHelperApp.Models;
 using GameHelperApp.Services;
+using GameHelperApp.Static;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace GameHelperApp.Controllers;
-
+[Authorize(Roles = UserRoles.Admin)]
 public class PcBuilderController : Controller
 {
     private readonly IPcBuilderService<PcBuilder> _service;
@@ -14,6 +16,7 @@ public class PcBuilderController : Controller
     {
         _service = service;
     }
+    [AllowAnonymous]
     public async Task<IActionResult> Index()
     {
         var data = await _service.GetAllAsync();

@@ -47,7 +47,10 @@
                 <div class="form-group">
                     <form asp-action="Delete">
                         <input type="hidden" asp-for="EngineId" />
-                        <input type="submit" value="Accept" class="btn btn-danger float-end" />
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                            <input type="submit" value="Accept" class="btn btn-danger float-end"/>
+                        }
                     </form>
                     <a class="btn btn-secondary" asp-action="Index">Back</a>
                 </div>

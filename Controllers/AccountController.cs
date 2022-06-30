@@ -1,12 +1,13 @@
 using GameHelperApp.Models;
 using GameHelperApp.Static;
 using GameHelperApp.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace GameHelperApp.Controllers;
-
+[Authorize]
 public class AccountController:Controller
 {
     private readonly UserManager<AppUser> _userManager;
@@ -34,11 +35,12 @@ public class AccountController:Controller
         }
         return View("AllUsers",users);
     }
+    [AllowAnonymous]
     public IActionResult Login()
     {
         return View(new LoginViewModel());
     }
-    
+    [AllowAnonymous]
     [HttpPost]
     public async Task<IActionResult> Login(LoginViewModel loginViewModel)
     {
@@ -64,11 +66,12 @@ public class AccountController:Controller
             TempData["Error"] = "Please try again!";
             return View(loginViewModel);
     }
+    [AllowAnonymous]
     public IActionResult Register()
     {
         return View(new RegisterViewModel());
     }
-
+    [AllowAnonymous]
     [HttpPost]
     public async Task<IActionResult> Register(RegisterViewModel registerViewModel)
     {
@@ -104,5 +107,10 @@ public class AccountController:Controller
     {
         await _signInManager.SignOutAsync();
         return RedirectToAction("Index", "Home");
+    }
+
+    public IActionResult AccessDenied(string ReturnUrl)
+    {
+        return View();
     }
 }

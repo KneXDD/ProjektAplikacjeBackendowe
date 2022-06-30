@@ -1,10 +1,12 @@
 using GameHelperApp.Models;
 using GameHelperApp.Services;
+using GameHelperApp.Static;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace GameHelperApp.Controllers;
-
+[Authorize(Roles = UserRoles.Admin)]
 public class CpuController : Controller
 {
     private readonly IServices<Cpu> _service;
@@ -13,17 +15,19 @@ public class CpuController : Controller
     {
         _service = service;
     }
+    [AllowAnonymous]
     public async Task<IActionResult> Index()
     {
         var data = await _service.GetAllAsync();
         return View(data);
     }
+    [AllowAnonymous]
     public async Task<IActionResult> Search(string search)
     {
         var data = await _service.GetAllAsync();
         if (!string.IsNullOrEmpty(search))
         {
-            var filter = data.Where(n => n.CpuModel.Contains(search));
+            var filter = data.Where(n => string.Equals(n.CpuModel, search, StringComparison.CurrentCultureIgnoreCase));
             return View("Index", filter);
         }
         return View("Index",data);
