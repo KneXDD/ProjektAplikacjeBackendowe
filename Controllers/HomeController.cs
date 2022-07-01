@@ -57,7 +57,7 @@ public class HomeController : Controller
             con += "<br/> Message: " + sendEmailViewModel.Text;
             mail.Body = con;
             SmtpClient smtpClient = new SmtpClient("mail.nwhead.pl");
-            NetworkCredential networkCredential = new NetworkCredential("gamehelperapp@nwhead.pl",""); //ADD Password
+            NetworkCredential networkCredential = new NetworkCredential("gamehelperapp@nwhead.pl","Qazxsw12345!"); //ADD Password
             smtpClient.UseDefaultCredentials = false;
             smtpClient.Credentials = networkCredential;
             smtpClient.Port = 587;
