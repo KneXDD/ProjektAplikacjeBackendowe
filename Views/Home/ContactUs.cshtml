@@ -1,0 +1,59 @@
+﻿@model GameHelperApp.ViewModel.SendEmailViewModel
+
+@{
+    ViewBag.Title = "Contact";
+    Layout = "_Layout";
+}
+
+<div class="row">
+    <div class="col-md-6 offset-3">
+        <p>
+            <h4>Send Messeage</h4>
+        </p>
+
+        @if (TempData["Error"] != null)
+        {
+            <div class="col-md-12 alert alert-danger">
+                <span><b>Sorry!</b>- @TempData["Error"]</span>
+            </div>
+        }
+          @if (TempData["Success"] != null)
+          {
+              <div class="col-md-12 alert alert-success">
+                  <span>@TempData["Success"] </span>
+              </div>
+          }
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <form asp-action="ContactUs">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        
+                        <div class="form-group">
+                            <label asp-for="Email" class="control-label"></label>
+                            <input asp-for="Email" class="form-control"/>
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Name" class="control-label"></label>
+                            <input asp-for="Name" class="form-control"/>
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Subject" class="control-label"></label>
+                            <input asp-for="Subject" class="form-control"/>
+                            <span asp-validation-for="Subject" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Text" class="control-label"></label>
+                            <input asp-for="Text" class="form-control"/>
+                            <span asp-validation-for="Text" class="text-danger"></span>
+                        </div>
+                    <div class="form-group">
+                            <input class="btn btn-success float-end" type="submit" value="Send" />
+                            <a class="btn btn-secondary" asp-controller="Home" asp-action="Index">Cancel</a>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
