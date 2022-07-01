@@ -1,0 +1,74 @@
+@using GameHelperApp.Enums
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model Storge
+
+@{
+    ViewBag.Title = "Update Storge";
+    Layout = "_Layout";
+}
+
+<div class="row text">
+    <div class="col-md-8 offset-2">
+        <p>
+            <h1>Update @Model.StorgeName</h1>
+        </p>
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <input asp-for="StorgeId" class="form-control" hidden/>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="StorgeName" class="control-label"></label>
+                        <input asp-for="StorgeName" class="form-control" />
+                        <span asp-validation-for="StorgeName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Producer" class="control-label"></label>
+                        <input asp-for="Producer" class="form-control" />
+                        <span asp-validation-for="Producer" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="SSD" class="control-label"></label>
+                        <p>Select if it has SSD: <input asp-for="SSD"/></p>
+                        <span asp-validation-for="SSD" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ReadSpeed" class="control-label"></label>
+                        <input asp-for="ReadSpeed" class="form-control" />
+                        <span asp-validation-for="ReadSpeed" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="WriteSpeed" class="control-label"></label>
+                        <input asp-for="WriteSpeed" class="form-control" />
+                        <span asp-validation-for="WriteSpeed" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Interface" class="control-label"></label>
+                        <select asp-for="Interface" class="form-control" asp-items="Html.GetEnumSelectList<Interface>()"></select>
+                        <span asp-validation-for="Interface" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Capacity" class="control-label"></label>
+                        <select asp-for="Capacity" class="form-control" asp-items="Html.GetEnumSelectList<Capacity>()"></select>
+                        <span asp-validation-for="Capacity" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Price" class="control-label"></label>
+                        <input asp-for="Price" class="form-control" />
+                        <span asp-validation-for="Price" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                            <input type="submit" value="Update" class="btn btn-success float-end"/>
+                        }
+                        <a class="btn btn-secondary" asp-action="Index">Back</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

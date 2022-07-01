@@ -1,0 +1,91 @@
+@model IEnumerable<Storge>
+
+@{
+    ViewBag.Title = "Storge";
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Storge</title>
+</head>
+<body>
+<div class="col-md-3">
+    <form class="form-inline" asp-controller="Storge" asp-action="Search" style="padding-right: 5px;">
+        <input name="search" type="text" class="form-control bg-dark text-white" placeholder="Search by name" aria-label="Recipient's username">
+    </form>
+</div>
+<p></p>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered table-sm">
+            <thead class="table-dark">
+            <tr class="text-center">
+                <th>@Html.DisplayNameFor(x => x.StorgeId)</th>
+                <th>@Html.DisplayNameFor(x => x.StorgeName)</th>
+                <th>@Html.DisplayNameFor(x => x.Producer)</th>
+                <th>@Html.DisplayNameFor(x => x.SSD)</th>
+                <th>@Html.DisplayNameFor(x => x.ReadSpeed)</th>
+                <th>@Html.DisplayNameFor(x => x.WriteSpeed)</th>
+                <th>@Html.DisplayNameFor(x => x.Interface)</th>
+                <th>@Html.DisplayNameFor(x => x.Capacity)</th>
+                <th>@Html.DisplayNameFor(x => x.Price)</th>
+                @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                {
+                    <th>Actions</th>
+                }
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var x in Model)
+            {
+                <tr class="text-center">
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => x.StorgeId)
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => x.StorgeName)
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => x.Producer)
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => x.SSD)
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => x.ReadSpeed)
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => x.WriteSpeed)
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => x.Interface)
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => x.Capacity)
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => x.Price)
+                    </td>
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        <td class="align-middle">
+                            <a class="btn btn-success" asp-action="Edit" asp-route-id="@x.StorgeId">Edit</a>
+                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@x.StorgeId">Delete</a>
+                        </td>
+                    }
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
+@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+{
+    <div class="text-white">
+        <a asp-controller="Storge" asp-action="Create" class="btn btn btn-dark">Add Storge</a>
+    </div>
+}
+</body>
+</html>

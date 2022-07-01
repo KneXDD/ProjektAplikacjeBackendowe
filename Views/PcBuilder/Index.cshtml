@@ -1,0 +1,85 @@
+@model IEnumerable<PcBuilder>
+
+@{
+    ViewBag.Title = "PcBuilder";
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PcBuilder</title>
+</head>
+<body>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered table-sm">
+            <thead class="table-dark">
+            <tr class="text-center">
+                <th>@Html.DisplayNameFor(x => x.PcBuilderId)</th>
+                <th>@Html.DisplayNameFor(x => x.Cpu)</th>
+                <th>@Html.DisplayNameFor(x => x.Motherboard)</th>
+                <th>@Html.DisplayNameFor(x => x.Memory)</th>
+                <th>@Html.DisplayNameFor(x => x.Storge)</th>
+                <th>@Html.DisplayNameFor(x => x.Gpu)</th>
+                <th>@Html.DisplayNameFor(x => x.Case)</th>
+                <th>@Html.DisplayNameFor(x => x.Psu)</th>
+                <th>@Html.DisplayNameFor(x => x.Description)</th>
+                @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                {
+                    <th>Actions</th>
+                }
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var x in Model)
+            {
+                <tr class="text-center">
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => x.PcBuilderId)
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => x.Cpu)
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => x.Motherboard)
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => x.Memory)
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => x.Storge)
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => x.Gpu)
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => x.Case)
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => x.Psu)
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => x.Description)
+                    </td>
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        <td class="align-middle">
+                            <a class="btn btn-success" asp-action="Edit" asp-route-id="@x.PcBuilderId">Edit</a>
+                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@x.PcBuilderId">Delete</a>
+                        </td>
+                    }
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
+@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+{
+    <div class="text-white">
+        <a asp-controller="PcBuilder" asp-action="Create" class="btn btn btn-dark">Add Pc</a>
+    </div>
+}
+</body>
+</html>
