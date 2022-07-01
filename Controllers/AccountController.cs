@@ -1,4 +1,5 @@
 using GameHelperApp.Models;
+using GameHelperApp.Services;
 using GameHelperApp.Static;
 using GameHelperApp.ViewModel;
 using Microsoft.AspNetCore.Authorization;
@@ -13,11 +14,13 @@ public class AccountController:Controller
     private readonly UserManager<AppUser> _userManager;
     private readonly SignInManager<AppUser> _signInManager;
     private readonly AppDbContext _context;
-    public AccountController(UserManager<AppUser> userManager,SignInManager<AppUser> signInManager, AppDbContext context)
+    private readonly IUserService _userService;
+    public AccountController(UserManager<AppUser> userManager,SignInManager<AppUser> signInManager, AppDbContext context,IUserService userService)
     {
         _userManager = userManager;
         _signInManager = signInManager;
         _context = context;
+        _userService = userService;
     }
 
     public async Task<IActionResult> AllUsers()
@@ -112,5 +115,27 @@ public class AccountController:Controller
     public IActionResult AccessDenied(string ReturnUrl)
     {
         return View();
+    }
+    
+    public IActionResult ChangePassword()
+    {
+        return View(new ChangePasswordViewModel());
+    }
+    [HttpPost]
+    public async Task<IActionResult> ChangePassword(ChangePasswordViewModel model)
+    {
+        if (ModelState.IsValid)
+        {
+            var change = await _userService.ChangePasswordAsync(model);
+            if (change.Succeeded)
+            {
+                ModelState.Clear();
+                TempData["Success"] = "Password change";
+                return View();
+            }
+
+            TempData["Error"] = "Wrong password";
+        }
+        return View(model);
     }
 }

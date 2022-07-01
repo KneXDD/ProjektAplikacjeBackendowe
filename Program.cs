@@ -22,6 +22,7 @@ builder.Services.AddScoped<IServices<Psu>, PsuService>();
 builder.Services.AddScoped<IServices<Storge>, StorgeService>();
 builder.Services.AddScoped<IServices<Studios>, StudiosService>();
 builder.Services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
+builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddMemoryCache();
 builder.Services.AddSession();
 builder.Services.AddScoped<Initializer>();
