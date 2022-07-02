@@ -19,5 +19,7 @@ public class Psu
     public bool Rgb { get; set; }
     
     public decimal Price { get; set; }
+    
+    public List<PcBuilder> PcBuilders { get; set; } = new List<PcBuilder>();
 
 }

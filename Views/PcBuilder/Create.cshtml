@@ -1,5 +1,5 @@
 ﻿@using GameHelperApp.Enums
-@model PcBuilder    
+@model GameHelperApp.ViewModel.AddPcViewModel    
 
 @{
     ViewBag.Title = "Add new Pc";
@@ -17,39 +17,39 @@
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                     <div class="form-group">
-                        <label asp-for="Cpu" class="control-label"></label>
-                        <select asp-for="Cpu" class="form-control" asp-items="ViewBag.Cpu"></select>
-                        <span asp-validation-for="Cpu" class="text-danger"></span>
+                        <label asp-for="CpuId" class="control-label"></label>
+                        <select asp-for="CpuId" class="form-control" asp-items="ViewBag.CpuId" required></select>
+                        <span asp-validation-for="CpuId" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="Motherboard" class="control-label"></label>
-                        <select asp-for="Motherboard" class="form-control" asp-items="ViewBag.Motherboard"></select>
-                        <span asp-validation-for="Motherboard" class="text-danger"></span>
+                        <label asp-for="MotherboardId" class="control-label"></label>
+                        <select asp-for="MotherboardId" class="form-control" asp-items="ViewBag.MotherboardId" required></select>
+                        <span asp-validation-for="MotherboardId" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="Memory" class="control-label"></label>
-                        <select asp-for="Memory" class="form-control" asp-items="ViewBag.Memory"></select>
-                        <span asp-validation-for="Memory" class="text-danger"></span>
+                        <label asp-for="MemoryId" class="control-label"></label>
+                        <select asp-for="MemoryId" class="form-control" asp-items="ViewBag.MemoryId" required></select>
+                        <span asp-validation-for="MemoryId" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="Storge" class="control-label"></label>
-                        <select asp-for="Storge" class="form-control" asp-items="ViewBag.Storge"></select>
-                        <span asp-validation-for="Storge" class="text-danger"></span>
+                        <label asp-for="StorgeId" class="control-label"></label>
+                        <select asp-for="StorgeId" class="form-control" asp-items="ViewBag.StorgeId" required></select>
+                        <span asp-validation-for="StorgeId" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="Gpu" class="control-label"></label>
-                        <select asp-for="Gpu" class="form-control" asp-items="ViewBag.Gpu"></select>
-                        <span asp-validation-for="Gpu" class="text-danger"></span>
+                        <label asp-for="GpuId" class="control-label"></label>
+                        <select asp-for="GpuId" class="form-control" asp-items="ViewBag.GpuId" required></select>
+                        <span asp-validation-for="GpuId" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="Case" class="control-label"></label>
-                        <select asp-for="Case" class="form-control" asp-items="ViewBag.Case"></select>
-                        <span asp-validation-for="Case" class="text-danger"></span>
+                        <label asp-for="CaseId" class="control-label"></label>
+                        <select asp-for="CaseId" class="form-control" asp-items="ViewBag.CaseId" required></select>
+                        <span asp-validation-for="CaseId" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="Psu" class="control-label"></label>
-                        <select asp-for="Psu" class="form-control" asp-items="ViewBag.Psu"></select>
-                        <span asp-validation-for="Psu" class="text-danger"></span>
+                        <label asp-for="PsuId" class="control-label"></label>
+                        <select asp-for="PsuId" class="form-control" asp-items="ViewBag.PsuId" required></select>
+                        <span asp-validation-for="PsuId" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Description" class="control-label"></label>

@@ -6,9 +6,9 @@ public class GamesViewModel
 {
     public GamesViewModel()
     {
-        Engines = new List<Engines>();
-        Studios = new List<Studios>();
+        Engine = new List<Engines>();
+        Studio = new List<Studios>();
     }
-    public List<Engines> Engines { get; set; }
-    public List<Studios> Studios { get; set; }
+    public List<Engines> Engine { get; set; }
+    public List<Studios> Studio { get; set; }
 }

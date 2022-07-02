@@ -1,5 +1,5 @@
 ﻿@using GameHelperApp.Enums
-@model Games
+@model GameHelperApp.ViewModel.AddGameViewModel
 
 @{
     ViewBag.Title = "Edit Game";
@@ -37,9 +37,9 @@
                         <span asp-validation-for="Cover" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="Studios" class="control-label"></label>
-                        <input asp-for="Studios" class="form-control" required/>
-                        <span asp-validation-for="Studios" class="text-danger"></span>
+                        <label asp-for="StudioId" class="control-label"></label>
+                        <select asp-for="StudioId" class="form-control" asp-items="ViewBag.Studios"></select>
+                        <span asp-validation-for="StudioId" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Genre" class="control-label"></label>
@@ -47,9 +47,9 @@
                         <span asp-validation-for="Genre" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="Engines" class="control-label"></label>
-                        <input asp-for="Engines" class="form-control" />
-                        <span asp-validation-for="Engines" class="text-danger"></span>
+                        <label asp-for="EngineId" class="control-label"></label>
+                        <select asp-for="EngineId" class="form-control" asp-items="ViewBag.Engines"></select>
+                        <span asp-validation-for="EngineId" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
@@ -63,7 +63,7 @@
         </div>
     </div>
 </div>
-section Scripts
+@section Scripts
 {
 <script>
         $(document).ready(function ()

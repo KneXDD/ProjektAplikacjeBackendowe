@@ -28,6 +28,8 @@ public class Case
     
     public decimal Price { get; set; }
     
+    public List<PcBuilder> PcBuilders { get; set; } = new List<PcBuilder>();
+    
     
     
 }

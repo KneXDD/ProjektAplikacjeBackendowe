@@ -25,4 +25,51 @@ public class AppDbContext:IdentityDbContext<AppUser>
     
     public DbSet<AppUser> AppUser { get; set; }
     
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+        modelBuilder.Entity<PcBuilder>(eb =>
+        {
+            eb.HasOne(c => c.Cpu)
+                .WithMany(b => b.PcBuilders)
+                .HasForeignKey(k => k.CpuId);
+            
+            eb.HasOne(c => c.Motherboard)
+                .WithMany(b => b.PcBuilders)
+                .HasForeignKey(k => k.MotherboardId);
+            
+            eb.HasOne(c => c.Memory)
+                .WithMany(b => b.PcBuilders)
+                .HasForeignKey(k => k.MemoryId);
+            
+            eb.HasOne(c => c.Storge)
+                .WithMany(b => b.PcBuilders)
+                .HasForeignKey(k => k.StorgeId);
+            
+            eb.HasOne(c => c.Gpu)
+                .WithMany(b => b.PcBuilders)
+                .HasForeignKey(k => k.GpuId);
+            
+            eb.HasOne(c => c.Case)
+                .WithMany(b => b.PcBuilders)
+                .HasForeignKey(k => k.CaseId);
+            
+            eb.HasOne(c => c.Psu)
+                .WithMany(b => b.PcBuilders)
+                .HasForeignKey(k => k.PsuId);
+        });
+        base.OnModelCreating(modelBuilder);
+        modelBuilder.Entity<Games>(eb =>
+        {
+            eb.HasOne(c => c.Engines)
+                .WithMany(b => b.GamesList)
+                .HasForeignKey(k => k.EngineId)
+                .OnDelete(DeleteBehavior.Cascade);
+            eb.HasOne(c => c.Studios)
+                .WithMany(b => b.GamesList)
+                .HasForeignKey(k => k.StudioId)
+                .OnDelete(DeleteBehavior.Cascade);
+        });
+    }
+    
 }

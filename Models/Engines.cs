@@ -23,4 +23,6 @@ public class Engines
     [DisplayName("Engine Logo")]
     public string EngineLogo { get; set; }
     
+    public List<Games> GamesList { get; set; } = new List<Games>();
+
 }

@@ -15,39 +15,39 @@
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                     <div class="form-group">
-                        <label asp-for="Cpu" class="control-label"></label>
-                        <input asp-for="Cpu" class="form-control" readonly/>
-                        <span asp-validation-for="Cpu" class="text-danger"></span>
+                        <label asp-for="CpuId" class="control-label"></label>
+                        <input asp-for="Cpu.CpuModel" class="form-control" readonly asp-items="ViewBag.Cpu"/>
+                        <span asp-validation-for="CpuId" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="Motherboard" class="control-label"></label>
-                        <input asp-for="Motherboard" class="form-control" readonly/>
-                        <span asp-validation-for="Motherboard" class="text-danger"></span>
+                        <label asp-for="MotherboardId" class="control-label"></label>
+                        <input asp-for="Motherboard.MotherboardName" class="form-control" readonly asp-items="ViewBag.Motherboard"/>
+                        <span asp-validation-for="MotherboardId" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="Memory" class="control-label"></label>
-                        <input asp-for="Memory" class="form-control" readonly/>
-                        <span asp-validation-for="Memory" class="text-danger"></span>
+                        <label asp-for="MemoryId" class="control-label"></label>
+                        <input asp-for="Memory.MemoryName" class="form-control" readonly asp-items="ViewBag.Memory"/>
+                        <span asp-validation-for="MemoryId" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="Storge" class="control-label"></label>
-                        <input asp-for="Storge" class="form-control" readonly/>
-                        <span asp-validation-for="Storge" class="text-danger"></span>
+                        <label asp-for="StorgeId" class="control-label"></label>
+                        <input asp-for="Storge.StorgeName" class="form-control" readonly asp-items="ViewBag.Storge"/>
+                        <span asp-validation-for="StorgeId" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="Gpu" class="control-label"></label>
-                        <input asp-for="Gpu" class="form-control" readonly></input>
-                        <span asp-validation-for="Gpu" class="text-danger"></span>
+                        <label asp-for="GpuId" class="control-label"></label>
+                        <input asp-for="Gpu.GpuModel" class="form-control" readonly asp-items="ViewBag.Gpu"/>
+                        <span asp-validation-for="GpuId" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="Case" class="control-label"></label>
-                        <input asp-for="Case" class="form-control" readonly/>
-                        <span asp-validation-for="Case" class="text-danger"></span>
+                        <label asp-for="CaseId" class="control-label"></label>
+                        <input asp-for="Case.Name" class="form-control" readonly asp-items="ViewBag.Case"/>
+                        <span asp-validation-for="CaseId" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="Psu" class="control-label"></label>
-                        <input asp-for="Psu" class="form-control" readonly></input>
-                        <span asp-validation-for="Psu" class="text-danger"></span>
+                        <label asp-for="PsuId" class="control-label"></label>
+                        <input asp-for="Psu.PsuModel" class="form-control" readonly asp-items="ViewBag.Psu"/>
+                        <span asp-validation-for="PsuId" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Description" class="control-label"></label>

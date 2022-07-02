@@ -22,4 +22,6 @@ public class Gpu
     public string Memory { get; set; }
     
     public decimal Price { get; set; }
+    
+    public List<PcBuilder> PcBuilders { get; set; } = new List<PcBuilder>();
 }

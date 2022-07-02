@@ -27,4 +27,6 @@ public class Storge
     public Capacity Capacity { get; set; }
     
     public decimal Price { get; set; }
+    
+    public List<PcBuilder> PcBuilders { get; set; } = new List<PcBuilder>();
 }

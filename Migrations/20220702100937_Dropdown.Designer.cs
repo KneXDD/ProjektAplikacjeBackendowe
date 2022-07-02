@@ -3,6 +3,7 @@ using System;
 using GameHelperApp;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GameHelperApp.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220702100937_Dropdown")]
+    partial class Dropdown
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.4");
@@ -195,7 +197,7 @@ namespace GameHelperApp.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("EngineId")
+                    b.Property<int>("EnginesEngineId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("Genre")
@@ -208,14 +210,14 @@ namespace GameHelperApp.Migrations
                     b.Property<DateTime>("ReleaseDate")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("StudioId")
+                    b.Property<int>("StudiosStudioId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("GameId");
 
-                    b.HasIndex("EngineId");
+                    b.HasIndex("EnginesEngineId");
 
-                    b.HasIndex("StudioId");
+                    b.HasIndex("StudiosStudioId");
 
                     b.ToTable("Games");
                 });
@@ -602,14 +604,14 @@ namespace GameHelperApp.Migrations
             modelBuilder.Entity("GameHelperApp.Models.Games", b =>
                 {
                     b.HasOne("GameHelperApp.Models.Engines", "Engines")
-                        .WithMany("GamesList")
-                        .HasForeignKey("EngineId")
+                        .WithMany()
+                        .HasForeignKey("EnginesEngineId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("GameHelperApp.Models.Studios", "Studios")
-                        .WithMany("GamesList")
-                        .HasForeignKey("StudioId")
+                        .WithMany()
+                        .HasForeignKey("StudiosStudioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -621,43 +623,43 @@ namespace GameHelperApp.Migrations
             modelBuilder.Entity("GameHelperApp.Models.PcBuilder", b =>
                 {
                     b.HasOne("GameHelperApp.Models.Case", "Case")
-                        .WithMany("PcBuilders")
+                        .WithMany()
                         .HasForeignKey("CaseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("GameHelperApp.Models.Cpu", "Cpu")
-                        .WithMany("PcBuilders")
+                        .WithMany()
                         .HasForeignKey("CpuId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("GameHelperApp.Models.Gpu", "Gpu")
-                        .WithMany("PcBuilders")
+                        .WithMany()
                         .HasForeignKey("GpuId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("GameHelperApp.Models.Memory", "Memory")
-                        .WithMany("PcBuilders")
+                        .WithMany()
                         .HasForeignKey("MemoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("GameHelperApp.Models.Motherboard", "Motherboard")
-                        .WithMany("PcBuilders")
+                        .WithMany()
                         .HasForeignKey("MotherboardId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("GameHelperApp.Models.Psu", "Psu")
-                        .WithMany("PcBuilders")
+                        .WithMany()
                         .HasForeignKey("PsuId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("GameHelperApp.Models.Storge", "Storge")
-                        .WithMany("PcBuilders")
+                        .WithMany()
                         .HasForeignKey("StorgeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -726,51 +728,6 @@ namespace GameHelperApp.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("GameHelperApp.Models.Case", b =>
-                {
-                    b.Navigation("PcBuilders");
-                });
-
-            modelBuilder.Entity("GameHelperApp.Models.Cpu", b =>
-                {
-                    b.Navigation("PcBuilders");
-                });
-
-            modelBuilder.Entity("GameHelperApp.Models.Engines", b =>
-                {
-                    b.Navigation("GamesList");
-                });
-
-            modelBuilder.Entity("GameHelperApp.Models.Gpu", b =>
-                {
-                    b.Navigation("PcBuilders");
-                });
-
-            modelBuilder.Entity("GameHelperApp.Models.Memory", b =>
-                {
-                    b.Navigation("PcBuilders");
-                });
-
-            modelBuilder.Entity("GameHelperApp.Models.Motherboard", b =>
-                {
-                    b.Navigation("PcBuilders");
-                });
-
-            modelBuilder.Entity("GameHelperApp.Models.Psu", b =>
-                {
-                    b.Navigation("PcBuilders");
-                });
-
-            modelBuilder.Entity("GameHelperApp.Models.Storge", b =>
-                {
-                    b.Navigation("PcBuilders");
-                });
-
-            modelBuilder.Entity("GameHelperApp.Models.Studios", b =>
-                {
-                    b.Navigation("GamesList");
                 });
 #pragma warning restore 612, 618
         }

@@ -23,5 +23,7 @@ public class Motherboard
     public CaseType CaseType { get; set; }
     
     public decimal Price { get; set; }
+    
+    public List<PcBuilder> PcBuilders { get; set; } = new List<PcBuilder>();
 
 }

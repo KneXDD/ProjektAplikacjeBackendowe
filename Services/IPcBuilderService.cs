@@ -3,12 +3,12 @@ using GameHelperApp.ViewModel;
 
 namespace GameHelperApp.Services;
 
-public interface IPcBuilderService<PcBuilder>
+public interface IPcBuilderService
 {
     Task<IEnumerable<PcBuilder>> GetAllAsync();
     Task<PcBuilder> GetByIdAsync(int id);
-    Task AddAsync(PcBuilder t);
-    Task<PcBuilder> UpdateAsync(int id, PcBuilder newt);
+    Task AddAsync(AddPcViewModel t);
+    Task UpdateAsync(AddPcViewModel newt);
     Task DeleteAsync(int id);
     Task<PcBuilderViewMode> PcBuilderViewMode();
 }

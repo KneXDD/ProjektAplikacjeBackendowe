@@ -20,6 +20,10 @@ public class Games
     
     //Foreign Key (MY)
     public Studios Studios { get; set; }
+    public int StudioId { get; set; }
 
-    public Engines Engines { get; set; }  
+    public Engines Engines { get; set; }
+    public int EngineId { get; set; }
+    
+    
 }

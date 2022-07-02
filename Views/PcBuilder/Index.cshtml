@@ -17,13 +17,13 @@
             <thead class="table-dark">
             <tr class="text-center">
                 <th>@Html.DisplayNameFor(x => x.PcBuilderId)</th>
-                <th>@Html.DisplayNameFor(x => x.Cpu)</th>
-                <th>@Html.DisplayNameFor(x => x.Motherboard)</th>
-                <th>@Html.DisplayNameFor(x => x.Memory)</th>
-                <th>@Html.DisplayNameFor(x => x.Storge)</th>
-                <th>@Html.DisplayNameFor(x => x.Gpu)</th>
-                <th>@Html.DisplayNameFor(x => x.Case)</th>
-                <th>@Html.DisplayNameFor(x => x.Psu)</th>
+                <th>@Html.DisplayNameFor(x => x.CpuId)</th>
+                <th>@Html.DisplayNameFor(x => x.MotherboardId)</th>
+                <th>@Html.DisplayNameFor(x => x.MemoryId)</th>
+                <th>@Html.DisplayNameFor(x => x.StorgeId)</th>
+                <th>@Html.DisplayNameFor(x => x.GpuId)</th>
+                <th>@Html.DisplayNameFor(x => x.CaseId)</th>
+                <th>@Html.DisplayNameFor(x => x.PsuId)</th>
                 <th>@Html.DisplayNameFor(x => x.Description)</th>
                 @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                 {
@@ -39,25 +39,25 @@
                         @Html.DisplayFor(modelItem => x.PcBuilderId)
                     </td>
                     <td class="align-middle">
-                        @Html.DisplayFor(modelItem => x.Cpu)
+                        @Html.DisplayFor(modelItem => x.Cpu.CpuModel)
                     </td>
                     <td class="align-middle">
-                        @Html.DisplayFor(modelItem => x.Motherboard)
+                        @Html.DisplayFor(modelItem => x.Motherboard.MotherboardName)
                     </td>
                     <td class="align-middle">
-                        @Html.DisplayFor(modelItem => x.Memory)
+                        @Html.DisplayFor(modelItem => x.Memory.MemoryName)
                     </td>
                     <td class="align-middle">
-                        @Html.DisplayFor(modelItem => x.Storge)
+                        @Html.DisplayFor(modelItem => x.Storge.StorgeName)
                     </td>
                     <td class="align-middle">
-                        @Html.DisplayFor(modelItem => x.Gpu)
+                        @Html.DisplayFor(modelItem => x.Gpu.GpuModel)
                     </td>
                     <td class="align-middle">
-                        @Html.DisplayFor(modelItem => x.Case)
+                        @Html.DisplayFor(modelItem => x.Case.Name)
                     </td>
                     <td class="align-middle">
-                        @Html.DisplayFor(modelItem => x.Psu)
+                        @Html.DisplayFor(modelItem => x.Psu.PsuModel)
                     </td>
                     <td class="align-middle">
                         @Html.DisplayFor(modelItem => x.Description)

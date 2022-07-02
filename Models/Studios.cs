@@ -24,4 +24,6 @@ public class Studios
 
     [DisplayName("Number Of Workers")]
     public int? NumberOfWorkers { get; set; }
+    
+    public List<Games> GamesList { get; set; } = new List<Games>();
 }
