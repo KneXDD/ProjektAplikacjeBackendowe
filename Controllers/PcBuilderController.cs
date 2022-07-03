@@ -32,6 +32,13 @@ public class PcBuilderController : Controller
         return View(data);
     }
     
+    [AllowAnonymous]
+    public async Task<IActionResult> Details(int id)
+    {
+        var result = await _service.GetByIdAsync(id);
+        return View(result);
+    }
+    
     public async Task<IActionResult> Create()
     {
         var dropdown = await _service.PcBuilderViewMode();

@@ -10,6 +10,7 @@ public class Case
     [DisplayName("Id")]
     public int CaseId { get; set; }
     
+    [DisplayName("Case Model")]
     public string Name { get; set; }
     
     [DisplayName("Case Type")]

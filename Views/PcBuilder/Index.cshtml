@@ -24,11 +24,7 @@
                 <th>@Html.DisplayNameFor(x => x.GpuId)</th>
                 <th>@Html.DisplayNameFor(x => x.CaseId)</th>
                 <th>@Html.DisplayNameFor(x => x.PsuId)</th>
-                <th>@Html.DisplayNameFor(x => x.Description)</th>
-                @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-                {
-                    <th>Actions</th>
-                }
+                <th>Actions</th>
             </tr>
             </thead>
             <tbody>
@@ -60,15 +56,13 @@
                         @Html.DisplayFor(modelItem => x.Psu.PsuModel)
                     </td>
                     <td class="align-middle">
-                        @Html.DisplayFor(modelItem => x.Description)
-                    </td>
-                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-                    {
-                        <td class="align-middle">
+                        <a class="btn btn-info text-white" asp-action="Details" asp-route-id="@x.PcBuilderId">Details</a>
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                        {
                             <a class="btn btn-success" asp-action="Edit" asp-route-id="@x.PcBuilderId">Edit</a>
                             <a class="btn btn-danger" asp-action="Delete" asp-route-id="@x.PcBuilderId">Delete</a>
-                        </td>
-                    }
+                        }
+                    </td>
                 </tr>
             }
             </tbody>

@@ -7,6 +7,7 @@ namespace GameHelperApp.Models;
 public class Motherboard
 {
     [Key]
+    [DisplayName("Id")]
     public int MotherboardId { get; set; }
     
     [DisplayName("Motherboard Name")]
@@ -15,8 +16,9 @@ public class Motherboard
     [DisplayName("Socket Number")]
     public string SocketNumber { get; set; }
     
+    [DisplayName("Producer Name")]
     public string Producer { get; set; }
-    
+    [DisplayName("RGB")]
     public bool Rgb { get; set; }
     
     [DisplayName("Case Type")]

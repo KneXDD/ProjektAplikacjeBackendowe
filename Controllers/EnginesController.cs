@@ -23,6 +23,12 @@ public class EnginesController : Controller
         return View(data);
     }
     [AllowAnonymous]
+    public async Task<IActionResult> Details(int id)
+    {
+        var result = await _service.GetByIdAsync(id);
+        return View(result);
+    }
+    [AllowAnonymous]
     public async Task<IActionResult> Search(string search)
     {
         var data = await _service.GetAllAsync();

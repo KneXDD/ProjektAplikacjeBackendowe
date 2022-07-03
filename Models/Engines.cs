@@ -6,8 +6,10 @@ namespace GameHelperApp.Models;
 public class Engines
 {
     [Key]
+    [DisplayName("Id")]
     public int EngineId { get; set; }
-
+    
+    [DisplayName("Engine Name")]
     public string Name { get; set; }
     
     [DisplayName("Release Date")]
@@ -16,6 +18,7 @@ public class Engines
 
     public string Developer { get; set; }
 
+    [DisplayName("Type License")]
     public string License { get; set; }
 
     [DisplayName("Engine Description")]

@@ -8,8 +8,9 @@ namespace GameHelperApp.Models;
 public class Studios
 {
     [Key]
+    [DisplayName("Id")]
     public int StudioId { get; set; }
-
+    [DisplayName("Studio Name")]
     public String Name { get; set; }
 
     [DisplayName("Year Of Establishment")]

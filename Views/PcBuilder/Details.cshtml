@@ -1,0 +1,64 @@
+@model PcBuilder
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "_Layout";
+}
+
+<div class="row text">
+    <div class="col-md-8 offset-2">
+        <p>
+            <h1>Details Pc </h1>
+        </p>
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-group">
+                        <label asp-for="CpuId" class="control-label"></label>
+                        <input asp-for="Cpu.CpuModel" class="form-control" readonly asp-items="ViewBag.Cpu"/>
+                        <span asp-validation-for="CpuId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="MotherboardId" class="control-label"></label>
+                        <input asp-for="Motherboard.MotherboardName" class="form-control" readonly asp-items="ViewBag.Motherboard"/>
+                        <span asp-validation-for="MotherboardId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="MemoryId" class="control-label"></label>
+                        <input asp-for="Memory.MemoryName" class="form-control" readonly asp-items="ViewBag.Memory"/>
+                        <span asp-validation-for="MemoryId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="StorgeId" class="control-label"></label>
+                        <input asp-for="Storge.StorgeName" class="form-control" readonly asp-items="ViewBag.Storge"/>
+                        <span asp-validation-for="StorgeId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="GpuId" class="control-label"></label>
+                        <input asp-for="Gpu.GpuModel" class="form-control" readonly asp-items="ViewBag.Gpu"/>
+                        <span asp-validation-for="GpuId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CaseId" class="control-label"></label>
+                        <input asp-for="Case.Name" class="form-control" readonly asp-items="ViewBag.Case"/>
+                        <span asp-validation-for="CaseId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PsuId" class="control-label"></label>
+                        <input asp-for="Psu.PsuModel" class="form-control" readonly asp-items="ViewBag.Psu"/>
+                        <span asp-validation-for="PsuId" class="text-danger"></span>
+                    </div>
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label"></label>
+                    <textarea asp-for="Description" class="form-control" readonly></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <p></p>
+                    <div class="form-group">
+                        <a class="btn btn-secondary" asp-action="Index">Back</a>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
