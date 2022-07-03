@@ -51,6 +51,7 @@
                         <input asp-for="EngineLogo" class="form-control" />
                         <span asp-validation-for="EngineLogo" class="text-danger"></span>
                     </div>
+                    <p></p>
                     <div class="form-group">
                         @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                         {

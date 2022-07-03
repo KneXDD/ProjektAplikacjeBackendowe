@@ -14,47 +14,48 @@
             <div class="col-md-8 offset-2">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-                    <div class="form-group">
-                        <label asp-for="StorgeName" class="control-label"></label>
-                        <input asp-for="StorgeName" class="form-control" readonly/>
-                        <span asp-validation-for="StorgeName" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Producer" class="control-label"></label>
-                        <input asp-for="Producer" class="form-control" readonly/>
-                        <span asp-validation-for="Producer" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="SSD" class="control-label"></label>
-                        <p>Select if it has SSD: <input asp-for="SSD" disabled/></p>
-                        <span asp-validation-for="SSD" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="ReadSpeed" class="control-label"></label>
-                        <input asp-for="ReadSpeed" class="form-control" readonly/>
-                        <span asp-validation-for="ReadSpeed" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="WriteSpeed" class="control-label"></label>
-                        <input asp-for="WriteSpeed" class="form-control" readonly/>
-                        <span asp-validation-for="WriteSpeed" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Interface" class="control-label"></label>
-                        <input asp-for="Interface" class="form-control" readonly></input>
-                        <span asp-validation-for="Interface" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Capacity" class="control-label"></label>
-                        <input asp-for="Capacity" class="form-control" readonly/>
-                        <span asp-validation-for="Capacity" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Price" class="control-label"></label>
-                        <input asp-for="Price" class="form-control" readonly/>
-                        <span asp-validation-for="Price" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
+                <div class="form-group">
+                    <label asp-for="StorgeName" class="control-label"></label>
+                    <input asp-for="StorgeName" class="form-control" readonly/>
+                    <span asp-validation-for="StorgeName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Producer" class="control-label"></label>
+                    <input asp-for="Producer" class="form-control" readonly/>
+                    <span asp-validation-for="Producer" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ReadSpeed" class="control-label"></label>
+                    <input asp-for="ReadSpeed" class="form-control" readonly/>
+                    <span asp-validation-for="ReadSpeed" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="WriteSpeed" class="control-label"></label>
+                    <input asp-for="WriteSpeed" class="form-control" readonly/>
+                    <span asp-validation-for="WriteSpeed" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Interface" class="control-label"></label>
+                    <input asp-for="Interface" class="form-control" readonly></input>
+                    <span asp-validation-for="Interface" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Capacity" class="control-label"></label>
+                    <input asp-for="Capacity" class="form-control" readonly/>
+                    <span asp-validation-for="Capacity" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Price" class="control-label"></label>
+                    <input asp-for="Price" class="form-control" readonly/>
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="SSD" class="control-label"></label>
+                    <p>SSD: <input asp-for="SSD" disabled/></p>
+                    <span asp-validation-for="SSD" class="text-danger"></span>
+                </div>
+                <p></p>
+                <div class="form-group">
                         <form asp-action="Delete">
                             <input type="hidden" asp-for="StorgeId" />
                             @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))

@@ -14,6 +14,7 @@ public class Games
     public GameGenre Genre { get; set; }
     
     [DisplayName("Release Date")]
+    [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
     public DateTime ReleaseDate { get; set; }
 
     public string Cover { get; set; }

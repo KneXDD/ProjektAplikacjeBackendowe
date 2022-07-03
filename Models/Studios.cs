@@ -13,6 +13,7 @@ public class Studios
     public String Name { get; set; }
 
     [DisplayName("Year Of Establishment")]
+    [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
     public DateTime YearOfEstablishment { get; set; }
 
     public Countries Country { get; set; }

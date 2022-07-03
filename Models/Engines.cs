@@ -11,6 +11,7 @@ public class Engines
     public string Name { get; set; }
     
     [DisplayName("Release Date")]
+    [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
     public DateTime ReleaseDate { get; set; }
 
     public string Developer { get; set; }
