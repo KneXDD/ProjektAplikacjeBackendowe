@@ -24,7 +24,6 @@ builder.Services.AddScoped<IServices<Studios>, StudiosService>();
 builder.Services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddMemoryCache();
-
 builder.Services.AddSession();
 builder.Services.AddScoped<Initializer>();
 builder.Services.AddAuthentication(x =>
