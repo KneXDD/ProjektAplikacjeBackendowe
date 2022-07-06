@@ -32,8 +32,9 @@ builder.Services.AddAuthentication(x =>
 });
 // Creating a database connection. The connection source is taken from appsettings.json (MY)
 //Connection String
-builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("GameHelperDB")));
+builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("GameHelperDB")));
 var app = builder.Build();
+var scopee = app.Services.CreateScope().ServiceProvider.GetRequiredService<AppDbContext>();
 var scope = app.Services.CreateScope().ServiceProvider.GetRequiredService<Initializer>();
 
 // Configure the HTTP request pipeline.
@@ -43,7 +44,7 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-
+scopee.Database.Migrate();
 scope.SeedUsersAndRolesAsync(app);
 
 app.UseHttpsRedirection();
