@@ -23,7 +23,6 @@
             <thead class="table-dark">
             <tr class="text-center">
                 <th>@Html.DisplayNameFor(x => x.Logo)</th>
-                <th>@Html.DisplayNameFor(x => x.StudioId)</th>
                 <th>@Html.DisplayNameFor(x => x.Name)</th>
                 <th>@Html.DisplayNameFor(x => x.YearOfEstablishment)</th>
                 <th>@Html.DisplayNameFor(x => x.Country)</th>
@@ -37,9 +36,6 @@
                 <tr class="text-center">
                     <td class="align-middle">
                         <img class="rounded-circle" src="@x.Logo" alt="@x.Name" style="max-width: 100px"></img>
-                    </td>
-                    <td class="align-middle">
-                        @Html.DisplayFor(modelItem => x.StudioId)
                     </td>
                     <td class="align-middle">
                         @Html.DisplayFor(modelItem => x.Name)

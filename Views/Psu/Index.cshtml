@@ -22,7 +22,6 @@
         <table class="table table-bordered table-sm">
             <thead class="table-dark">
             <tr class="text-center">
-                <th>@Html.DisplayNameFor(x => x.PsuId)</th>
                 <th>@Html.DisplayNameFor(x => x.PsuModel)</th>
                 <th>@Html.DisplayNameFor(x => x.Power)</th>
                 <th>@Html.DisplayNameFor(x => x.Cabling)</th>
@@ -38,9 +37,6 @@
             @foreach (var x in Model)
             {
                 <tr class="text-center">
-                    <td class="align-middle">
-                        @Html.DisplayFor(modelItem => x.PsuId)
-                    </td>
                     <td class="align-middle text-uppercase">
                         @Html.DisplayFor(modelItem => x.PsuModel)
                     </td>
@@ -54,7 +50,7 @@
                         @Html.DisplayFor(modelItem => x.Rgb)
                     </td>
                     <td class="align-middle">
-                        @Html.DisplayFor(modelItem => x.Price)
+                        @Html.DisplayFor(modelItem => x.Price)$
                     </td>
                     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                     {

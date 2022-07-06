@@ -22,7 +22,6 @@
         <table class="table table-bordered table-sm">
             <thead class="table-dark">
             <tr class="text-center">
-                <th>@Html.DisplayNameFor(x => x.CaseId)</th>
                 <th>@Html.DisplayNameFor(x => x.Name)</th>
                 <th>@Html.DisplayNameFor(x => x.CaseType)</th>
                 <th>@Html.DisplayNameFor(x => x.Producer)</th>
@@ -40,9 +39,6 @@
             @foreach (var x in Model)
             {
                 <tr class="text-center">
-                    <td class="align-middle">
-                        @Html.DisplayFor(modelItem => x.CaseId)
-                    </td>
                     <td class="align-middle text-uppercase">
                         @Html.DisplayFor(modelItem => x.Name)
                     </td>

@@ -16,7 +16,6 @@
         <table class="table table-bordered table-sm">
             <thead class="table-dark">
             <tr class="text-center">
-                <th>@Html.DisplayNameFor(x => x.PcBuilderId)</th>
                 <th>@Html.DisplayNameFor(x => x.CpuId)</th>
                 <th>@Html.DisplayNameFor(x => x.MotherboardId)</th>
                 <th>@Html.DisplayNameFor(x => x.MemoryId)</th>
@@ -31,9 +30,6 @@
             @foreach (var x in Model)
             {
                 <tr class="text-center">
-                    <td class="align-middle">
-                        @Html.DisplayFor(modelItem => x.PcBuilderId)
-                    </td>
                     <td class="align-middle text-uppercase">
                         @Html.DisplayFor(modelItem => x.Cpu.CpuModel)
                     </td>

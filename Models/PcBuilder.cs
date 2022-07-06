@@ -8,6 +8,7 @@ namespace GameHelperApp.Models;
 public class PcBuilder
 {
     [Key] 
+    [Display(Name = "ID")]
     public int PcBuilderId { get; set; }
     [Display(Name = "CPU")]
     public int CpuId { get; set; }
